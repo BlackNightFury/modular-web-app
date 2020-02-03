@@ -1,0 +1,83 @@
+mandatory_fields:
+  - Model
+  - Serial Number
+  - No Ways
+  - No Spare Ways
+  - Manufacturer
+  - Refrigerant Type
+  - Refrigerant Volume
+  - Safe Working Load
+  - Safe Working Pressure
+  - Rating (
+  - SWL (
+integer_fields:
+  - Rating (
+  - Refrigerant Weight
+  - No Ways
+  - No Spare Ways
+  - Number of controls
+mapping:
+  Quantity:
+    key: quantity
+    copy: false
+    element: facets
+    group: Description
+    label: Quantity
+  Condition:
+    key: condition
+    copy: true
+    element: facets
+    group: Description
+    label: Condition
+  Manufacturer:
+    key: manufacturer
+    copy: true
+    element: facets
+    group: Information
+    label: Manufacturer
+  Model:
+    key: model
+    copy: true
+    element: facets
+    group: Information
+    label: Model
+  Condition Description (Must be a sentence):
+    key: condition
+    copy: true
+    element: notes
+    group: Information
+    label: Condition Description
+    help: Must be a sentence
+  Local Asset Description:
+    key: description
+    copy: true
+    element: notes
+    group: Description
+    label: Local Asset Description
+  Notes:
+    key: notes
+    copy: true
+    element: notes
+    group: Information
+    label: Notes
+  Barcode:
+    key: barcode
+    copy: false
+    element: facets
+    label: Barcode
+  Existing Asset Number:
+    key: existing-asset-number
+    copy: false
+    element: facets
+    label: Existing Asset Number
+  Serial Number:
+    key: serial-number
+    copy: false
+    element: facets
+    label: Serial Number
+  Maintenance Requirement:
+    key: maintenance-requirement
+    copy: true
+    element: facets
+    label: Maintenance Requirement
+    group: Information

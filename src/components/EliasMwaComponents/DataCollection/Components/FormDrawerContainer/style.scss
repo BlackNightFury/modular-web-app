@@ -1,0 +1,13 @@
+@import '@/assets/styles/mixins.scss';
+
+.blankCol {
+  @media (min-width: $xxl-min-width) {
+    width: 75%;
+  }
+}
+
+.drawerCol {
+  @media (min-width: $xxl-min-width) {
+    width: 25%;
+  }
+}

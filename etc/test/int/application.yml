@@ -1,0 +1,35 @@
+aws:
+  appsync:
+    graphqlEndpoint: 'https://k42io6h3hbfavp55hzgtfvz7me.appsync-api.eu-west-2.amazonaws.com/graphql'
+
+tenants:
+  672FB50-BE2B-405D-9526-CB81427B7B7E:
+    identityPoolId: eu-west-2:81278450-b414-43ce-94c8-340b20f56e01
+    dummyDataEnable: true
+  BA7E007F-761B-4A0F-AFAF-45B032AC19A2:
+    identityPoolId: eu-west-2:0a198dc4-492c-41d0-84cc-7143cb4797fa
+    dummyDataEnable: true
+  8720A63-FCE4-328E-3321-AD3F58797C7F:
+    identityPoolId: eu-west-2:39caecfb-6ebe-41b5-8956-e5db3904b679
+    dummyDataEnable: true
+  3333333-3333-3333-3333-333333333333:
+    identityPoolId: eu-west-2:b55a49b2-b156-4463-b669-cd4d1f3602ef
+    dummyDataEnable: true
+  admin:
+    identityPoolId: eu-west-2:ebebd511-1ff3-4fc9-a570-6c23fbaeb4f7
+    dummyDataEnable: true
+  1111111-1111-1111-1111-111111111111:
+    identityPoolId: eu-west-2:8c220c78-c9df-4f45-83ea-466aaa7aac0b
+    dummyDataEnable: true
+
+globalUser:
+  identityPoolId: eu-west-2:f5bcc173-a6bc-4e9f-96cb-19a422fb6434
+
+googleAnalytics:
+  trackingID: UA-139257782-1
+
+adalConfig:
+  redirectUri: 'https://int.test-aws.reams-elias.co.uk/azure'
+
+newRelicConfig:
+  applicationId: 13880766

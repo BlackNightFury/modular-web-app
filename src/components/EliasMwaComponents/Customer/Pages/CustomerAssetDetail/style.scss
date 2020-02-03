@@ -1,0 +1,144 @@
+@import '@/assets/styles/mixins.scss';
+
+.customerFacilityDetail {
+  :global(.ant-tabs-bar) {
+    border-bottom: none !important;
+  }
+  :global(.ant-tabs-ink-bar) {
+    background-color: transparent; // $slate-grey !important;
+  }
+  :global(.ant-tabs-nav .ant-tabs-tab) {
+    color: $battleship-grey;
+    border-bottom: solid $battleship-grey 2px;
+    font-size: 14px;
+    margin: 0 10px 0 0;
+  }
+  :global(.ant-tabs-nav .ant-tabs-tab-active) {
+    color: $slate-grey;
+    border-bottom: solid $slate-grey 2px;
+  }
+  :global(.carousel .slide img) {
+    height: unset !important;
+  }
+  :global(.carousel div) {
+    height: unset !important;
+  }
+  a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+}
+
+.topTitle {
+  color: $slate-grey;
+  font-size: $font-size-lgx;
+  padding-bottom: 1em;
+  border-bottom: solid $sky-grey 2px;
+
+  .greyText {
+    color: $battleship-grey;
+  }
+
+  .assetId {
+    margin-right: 20px;
+  }
+}
+
+.serviceTimings {
+  color: $slate-grey;
+  margin: 20px 0 0 30px;
+}
+
+.subTitle {
+  color: $slate-grey;
+  // font-size: $font-size-lg;
+}
+.subTitleText {
+  color: $slate-grey;
+  // font-size: $font-size-md;
+}
+.paragraph {
+  color: $slate-grey;
+  padding: 12px 0;
+  font-size: $font-size-md;
+}
+
+.sparagraph {
+  color: $slate-grey;
+  padding: 8px 0;
+  font-size: $font-size-md;
+}
+
+.itemLabel {
+  color: $battleship-grey;
+  text-align: right;
+}
+
+.photoContainer {
+  margin: 10px 0;
+  img {
+    width: 100%;
+  }
+}
+
+.leftChartContainer {
+  margin-top: auto;
+}
+.rightChartContainer {
+  margin-top: 5px;
+}
+.chart {
+  text-align: center;
+  background: $mist-grey;
+  border-radius: 2px;
+  border: solid 1px $sage;
+  margin: 5px 0;
+  height: 88px;
+  padding: 8px 0 0 0;
+}
+.chartSmall {
+  text-align: center;
+  background: $mist-grey;
+  border-radius: 2px;
+  border: solid 1px $sage;
+  margin: 5px 0;
+  height: 44px;
+  padding: 8px 0 0 0;
+}
+.chartLabel {
+  font-size: $font-size-md;
+  color: $slate-grey;
+}
+.chartValue {
+  font-size: $font-size-xl;
+  color: $slate-grey;
+  font-weight: bold;
+  display: inline-block;
+}
+.chartValueSmall {
+  font-size: $font-size-lg;
+  color: $slate-grey;
+  font-weight: bold;
+  display: inline-block;
+}
+.chartValueLarge {
+  font-size: $font-size-xl;
+  color: $slate-grey;
+  font-weight: bold;
+  display: inline-block;
+}
+.chartUnit {
+  font-size: $font-size-lg;
+  font-weight: bold;
+  color: $slate-grey;
+  display: inline-block;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.chartCol {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}

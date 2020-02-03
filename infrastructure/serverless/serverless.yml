@@ -1,0 +1,735 @@
+service: sls-appsync-backend-v1 # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: ${opt:region, 'eu-west-2'}
+  stage: ${opt:stage, 'int'}
+
+  environment:
+    ELASTICSEARCH_HOST: ${self:custom.elasticSearchEndpoint}
+    CONFIG_INFO: ${file(../scripts/config.js):config.__str}
+    ACCOUNT_ID: ${self:custom.accountId}
+    ACCOUNT: ${opt:account, 'dev'}
+    NEW_RELIC_ENABLED: true
+    NEW_RELIC_NO_CONFIG_FILE: true
+    NEW_RELIC_APP_NAME: elias-mwa-${opt:account, 'dev'}-${opt:stage, 'int'}-lambda
+    NEW_RELIC_DISTRIBUTED_TRACING_ENABLED: true
+    NEW_RELIC_ACCOUNT_ID: 2299075
+    NEW_RELIC_PRIMARY_APPLICATION_ID: 2299075
+    NEW_RELIC_TRUSTED_ACCOUNT_KEY: 2299075
+    NEW_RELIC_LOG_ENABLED: true
+    NEW_RELIC_LOG: stdout
+
+package:
+  excludeDevDependencies: true
+  include:
+    - ../../etc/static_data/hierarchy-enrichment/*
+    - ../../etc/static_data/question-enrichment.yml
+    - ../scripts/*
+
+plugins:
+  - serverless-appsync-plugin
+  - serverless-s3-sync
+  # - serverless-s3-deploy
+  - serverless-prune-plugin
+  - "@anttiviljami/serverless-stack-output"
+  - serverless-plugin-ifelse
+  - serverless-plugin-log-subscription
+
+functions:
+  subscriptionValidate:
+    handler: subscription.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-reader
+  createRecord:
+    handler: create-record.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+  listRecords:
+    handler: list-records.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-reader
+  listAssets:
+    handler: list-assets.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-reader
+  createAsset:
+    handler: create-asset.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-asset-writer
+  createSpace:
+    handler: create-space.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+  createFloor:
+    handler: create-floor.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+  updateRecord:
+    handler: update-record.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+  updateAsset:
+    handler: update-asset.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-asset-writer
+  updateSpace:
+    handler: update-space.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+  updateFloor:
+    handler: update-floor.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+  updateFacility:
+    handler: update-facility.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-facility-writer
+  deleteAsset:
+    handler: delete-asset.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-asset-writer
+    timeout: 60
+  deleteProject:
+    handler: delete-project.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+    timeout: 60
+  # TODO: Need to have deleteSite lambda. Will come back to within 10 days
+  # deleteSite:
+  #   handler: delete-site.lambda
+  #   role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+  #   timeout: 60
+  deleteSpace:
+    handler: delete-space.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+    timeout: 60
+  deleteFloor:
+    handler: delete-floor.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+    timeout: 60
+  deleteFacility:
+    handler: delete-facility.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+    timeout: 60
+  deleteFormResponse:
+    handler: delete-formResponse.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+    timeout: 60
+  getHierarchy:
+    handler: get-hierarchy.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-hierarchy
+    vpc: ${self:custom.vpc}
+    timeout: 60
+    environment:
+      database: ${file(../scripts/config.js):config.legacy_db.database}
+      user: ${file(../scripts/config.js):config.legacy_db.user}
+      password: ${file(../scripts/config.js):config.legacy_db.password}
+      server: ${file(../scripts/config.js):config.legacy_db.server}
+  getManufacturers:
+    handler: get-manufacturers.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-rds-reader
+    timeout: 60
+    vpc: ${self:custom.vpc}
+    environment:
+      database: ${file(../scripts/config.js):config.legacy_db.database}
+      user: ${file(../scripts/config.js):config.legacy_db.user}
+      password: ${file(../scripts/config.js):config.legacy_db.password}
+      server: ${file(../scripts/config.js):config.legacy_db.server}
+  getSpaceTypes:
+    handler: get-spacetypes.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-rds-reader
+    timeout: 60
+    vpc: ${self:custom.vpc}
+    environment:
+      database: ${file(../scripts/config.js):config.legacy_db.database}
+      user: ${file(../scripts/config.js):config.legacy_db.user}
+      password: ${file(../scripts/config.js):config.legacy_db.password}
+      server: ${file(../scripts/config.js):config.legacy_db.server}
+  cleanUpTenants:
+    handler: clean-up-tenants.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-cleanup
+    timeout: 60
+    events:
+      - schedule: cron(0 0 * * ? *)
+  deleteMigration:
+    handler: delete-migration.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-writer
+    timeout: 60
+    environment:
+      ELASTICSEARCH_HOST: ${self:custom.elasticSearchEndpoint}
+      ELASTICSEARCH_INDEX_PREFIX: ${self:custom.esIndexPrefix}
+  generateReport:
+    handler: generate-report.lambda
+    role: arn:aws:iam::${self:custom.accountId}:role/elias-mwa-${opt:account, 'dev'}-lambda-appsync-generate-report
+    timeout: 900
+resources:
+  Resources:
+    staticSiteS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: staticSite
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              Resource:
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "staticSite"
+                    },
+                    "/*"
+                  ]
+                ]
+    staticSite:
+      Type: AWS::S3::Bucket
+      Properties:
+        AccessControl: PublicRead
+        BucketName: ${self:custom.siteName}
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: index.html
+    WebsiteOriginAccessIdentity:
+      Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+      Properties:
+        CloudFrontOriginAccessIdentityConfig:
+          Comment: "CloudFrontOriginAccessIdentity for ${opt:account, 'dev'}-${opt:stage, 'int'}"
+    cloudfrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Aliases:
+            - ${self:custom.siteName}
+          ViewerCertificate:
+            AcmCertificateArn: ${self:custom.certificateArn}
+            SslSupportMethod: "sni-only"
+          Enabled: "true"
+          DefaultRootObject: "index.html"
+          CustomErrorResponses:
+            - ErrorCode: 404
+              ResponseCode: 200
+              ResponsePagePath: "/index.html"
+          DefaultCacheBehavior:
+            AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+            MinTTL: "0"
+            MaxTTL: "0"
+            DefaultTTL: "0"
+            TargetOriginId: ${self:custom.s3Origin}
+            ForwardedValues:
+              QueryString: "false"
+              Cookies:
+                Forward: all
+            ViewerProtocolPolicy: redirect-to-https
+          Origins:
+            - DomainName: ${self:custom.siteName}.s3.amazonaws.com
+              ## An identifier for the origin which must be unique within the distribution
+              Id: ${self:custom.s3Origin}
+              S3OriginConfig:
+                OriginAccessIdentity: { "Fn::Join" : ["", ["origin-access-identity/cloudfront/", { Ref: WebsiteOriginAccessIdentity } ] ] }
+    DnsRecord:
+      Type: "AWS::Route53::RecordSet"
+      Properties:
+        AliasTarget:
+          DNSName: {"Fn::GetAtt": ["cloudfrontDistribution", "DomainName"]}
+          HostedZoneId: ${self:custom.hostedZoneId}
+        HostedZoneName: ${file(../scripts/config.js):config.dnsPrefix}-aws.reams-elias.co.uk.
+        Name: ${self:custom.siteName}.
+        Type: 'A'
+  Outputs:
+    WebHostingBucketArn:
+      Value: {"Fn::GetAtt": ["staticSite", "Arn"]}
+    AppSyncName:
+      Value: ${opt:stage, 'int'}-dataprototype-serverless
+    MSSQLDatabase:
+      Value: ${file(../scripts/config.js):config.legacy_db.server}
+custom:
+  accountId: ${file(../scripts/config.js):config.accountId}
+  siteName: ${opt:stage, 'int'}.${file(../scripts/config.js):config.dnsPrefix}-aws.reams-elias.co.uk
+  s3Origin: ${opt:stage, 'int'}.${file(../scripts/config.js):config.dnsPrefix}-origin
+  certificateArn: ${file(../scripts/config.js):config.aws.ssl_cert}
+  esIndexPrefix: ${opt:stage, 'int'}
+  hostedZoneId: Z2FDTNDATAQYW2
+  vpc: ${file(../../etc/${opt:account}/vpc.yml)}
+  # vpc:
+  #   securityGroupIds:
+  #   - sg-0e8d7063
+  #   subnetIds:
+  #   - subnet-02d7fca078c0ec90c
+  serverlessIfElse:
+    - If: ${file(../scripts/config.js):config.cleanUp.lambdaDisabled}
+      Exclude:
+        - functions.cleanUpTenants
+  prune:
+    automatic: ${file(../scripts/config.js):config.lambda_prune_automatic}
+    number: ${file(../scripts/config.js):config.lambda_prune_number}
+  s3Sync:
+    - bucketName: ${self:custom.siteName}
+      localDir: ../../dist
+  assets:
+    auto: true
+    targets:
+      - bucket: ${self:custom.siteName}
+        prefix: docs
+        files:
+          - source: ../../etc/static_data/docs/
+            globs:  '**/*.*'
+  appSync:
+    name: ${opt:stage, 'int'}-serverless
+    authenticationType: AWS_IAM
+    schema: schema.graphql # In case you want to change it
+    substitutions:
+      stageEnv: ${self:custom.esIndexPrefix}
+    dataSources:
+      - type: AMAZON_ELASTICSEARCH
+        name: MWA_ELASTIC_SEARCH
+        description: "Elastic Search Table For Elias MWA"
+        config:
+          endpoint: ${self:custom.elasticSearchEndpoint}
+          iamRoleStatements: # custom IAM Role statements for this DataSource. Ignored if `serviceRoleArn` is present. Auto-generated if both `serviceRoleArn` and `iamRoleStatements` are omitted
+            - Effect: "Allow"
+              Action:
+                - "es:ESHttpGet"
+                - "es:ESHttpDelete"
+                - "es:ESHttpHead"
+                - "es:ESHttpPost"
+                - "es:ESHttpPut"
+              Resource:
+                - ${self:custom.elasticSearchArn}
+      - type: AWS_LAMBDA
+        name: ListRecordsLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - ListRecordsLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: ListAssetsLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - ListAssetsLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: CreateRecordLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - CreateRecordLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: SubscriptionValidateLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - SubscriptionValidateLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: CreateAssetLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - CreateAssetLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: CreateSpaceLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - CreateSpaceLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: CreateFloorLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - CreateFloorLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: UpdateRecordLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - UpdateRecordLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: UpdateAssetLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - UpdateAssetLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: UpdateSpaceLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - UpdateSpaceLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: UpdateFloorLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - UpdateFloorLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: UpdateFacilityLambda #data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - UpdateFacilityLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: DeleteAssetLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - DeleteAssetLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: DeleteFormResponseLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - DeleteFormResponseLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: DeleteProjectLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - DeleteProjectLambdaFunction
+              - Arn
+      # TODO: Need to have delete site lambda data source. Come back in 10 days
+      # - type: AWS_LAMBDA
+      #   name: DeleteSiteLambda # data source name
+      #   description: 'Lambda DataSource'
+      #   config:
+      #     lambdaFunctionArn:
+      #       Fn::GetAtt:
+      #         - DeleteSiteLambdaFunction
+      #         - Arn
+      - type: AWS_LAMBDA
+        name: DeleteSpaceLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - DeleteSpaceLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: DeleteFloorLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - DeleteFloorLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: DeleteFacilityLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - DeleteFacilityLambdaFunction
+              - Arn
+      - type: AWS_LAMBDA
+        name: GetHierarchyLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - GetHierarchyLambdaFunction
+              - Arn
+
+      - type: AWS_LAMBDA
+        name: GetManufacturersLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - GetManufacturersLambdaFunction
+              - Arn
+
+      - type: AWS_LAMBDA
+        name: GetSpaceTypesLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - GetSpaceTypesLambdaFunction
+              - Arn
+
+      # - type: AWS_LAMBDA
+      #   name: CleanUpTenantsLambda # data source name
+      #   description: 'Lambda DataSource'
+      #   config:
+      #     lambdaFunctionArn:
+      #       Fn::GetAtt:
+      #         - CleanUpTenantsLambdaFunction
+      #         - Arn
+
+      - type: AWS_LAMBDA
+        name: DeleteMigrationLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - DeleteMigrationLambdaFunction
+              - Arn
+
+      - type: AWS_LAMBDA
+        name: GenerateReportLambda # data source name
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn:
+            Fn::GetAtt:
+              - GenerateReportLambdaFunction
+              - Arn
+    mappingTemplates:
+      - dataSource: ListAssetsLambda
+        type: Query
+        field: listAssets
+        request: "listAssets-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: ListRecordsLambda
+        type: Query
+        field: listProjects
+        request: "listProjects-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: ListRecordsLambda
+        type: Query
+        field: listFacilities
+        request: "listFacilities-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: ListRecordsLambda
+        type: Query
+        field: listFloors
+        request: "listFloors-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: ListRecordsLambda
+        type: Query
+        field: listSites
+        request: "listSites-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: ListRecordsLambda
+        type: Query
+        field: listSpaces
+        request: "listSpaces-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: ListRecordsLambda
+        type: Query
+        field: listFormResponses
+        request: "listFormResponses-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: CreateRecordLambda
+        type: Mutation
+        field: createProject
+        request: "project-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: UpdateRecordLambda
+        type: Mutation
+        field: updateProject
+        request: "project-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: DeleteProjectLambda
+        type: Mutation
+        field: deleteProject
+        request: "project-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: CreateRecordLambda
+        type: Mutation
+        field: createFacility
+        request: "facility-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: UpdateFacilityLambda
+        type: Mutation
+        field: updateFacility
+        request: "facility-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: DeleteFacilityLambda
+        type: Mutation
+        field: deleteFacility
+        request: "facility-request.vtl"
+        response: "common-response-es.vtl"
+      - dataSource: CreateAssetLambda
+        type: Mutation
+        field: createAsset
+        request: "asset-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: CreateRecordLambda
+        type: Mutation
+        field: createManufacturer
+        request: "manufacturer-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: UpdateAssetLambda
+        type: Mutation
+        field: updateAsset
+        request: "asset-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: DeleteAssetLambda
+        type: Mutation
+        field: deleteAsset
+        request: "asset-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: CreateFloorLambda
+        type: Mutation
+        field: createFloor
+        request: "floor-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: UpdateFloorLambda
+        type: Mutation
+        field: updateFloor
+        request: "floor-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: DeleteFloorLambda
+        type: Mutation
+        field: deleteFloor
+        request: "floor-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: CreateSpaceLambda
+        type: Mutation
+        field: createSpace
+        request: "space-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: UpdateSpaceLambda
+        type: Mutation
+        field: updateSpace
+        request: "space-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: DeleteSpaceLambda
+        type: Mutation
+        field: deleteSpace
+        request: "space-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: CreateRecordLambda
+        type: Mutation
+        field: createSite
+        request: "site-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: UpdateAssetLambda
+        type: Mutation
+        field: updateSite
+        request: "site-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: UpdateAssetLambda
+        type: Mutation
+        field: deleteSite
+        request: "site-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: GetHierarchyLambda
+        type: Query
+        field: getHierarchy
+        request: "getHierarchy-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: GetManufacturersLambda
+        type: Query
+        field: getManufacturers
+        request: "getManufacturers-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: GetSpaceTypesLambda
+        type: Query
+        field: getSpaceTypes
+        request: "getSpaceTypes-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: CreateRecordLambda
+        type: Mutation
+        field: createFormResponse
+        request: "formResponse-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: UpdateRecordLambda
+        type: Mutation
+        field: updateFormResponse
+        request: "formResponse-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: DeleteFormResponseLambda
+        type: Mutation
+        field: deleteFormResponse
+        request: "formResponse-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: ListRecordsLambda
+        type: Query
+        field: listMigrations
+        request: "listMigrations-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: CreateRecordLambda
+        type: Mutation
+        field: createMigration
+        request: "migration-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: DeleteMigrationLambda
+        type: Mutation
+        field: deleteMigration
+        request: "migration-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onCreateAsset
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onUpdateAsset
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onDeleteAsset
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onCreateFloor
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onUpdateFloor
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onDeleteFloor
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onCreateSpace
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onUpdateSpace
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: SubscriptionValidateLambda
+        type: Subscription
+        field: onDeleteSpace
+        request: "subscription-request.vtl"
+        response: "common-response.vtl"
+      - dataSource: GenerateReportLambda
+        type: Mutation
+        field: generateReport
+        request: "generate-report-request.vtl"
+        response: "common-response.vtl"
+
+  output:
+    handler: scripts/output.handler
+    file: stack.toml
+  elasticSearchEndpoint: ${file(../scripts/config.js):config.elasticSearchEndpoint}
+  elasticSearchArn: ${file(../scripts/config.js):config.elasticSearchArn}
+  logSubscription:
+    enabled: ${file(../scripts/config.js):config.logSubscriptionEnabled}
+    destinationArn: arn:aws:lambda:eu-west-2:${self:custom.accountId}:function:newrelic-log-ingestion
+    filterPattern: NR_LAMBDA_MONITORING

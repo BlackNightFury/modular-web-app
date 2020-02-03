@@ -1,0 +1,23 @@
+@import '../../../DataCollection/Pages/CommonPage/style.scss';
+@import '@/assets/styles/style.scss';
+
+.assetTypes {
+  margin-bottom: rem(10);
+}
+
+.sortContainer {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.btnCTA {
+  display: flex;
+  align-items: center;
+  float: right;
+}
+
+.firstColumn {
+  @media only screen and (max-width: 576px) {
+    border-right: none !important;
+  }
+}

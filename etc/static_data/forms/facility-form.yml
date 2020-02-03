@@ -1,0 +1,152 @@
+allowRoute: false
+fieldsets:
+  - name: Facility
+    properties:
+      hideGroupLabel: true
+    questions:
+      - description: Type
+        element: facets
+        fieldName: 'facility-type'
+        type: ComboBox
+        enum: [
+          'Assembly and recreation building',
+          'Commercial building',
+          'Factory',
+          'Hospital',
+          'Industrial building',
+          'Leisure centre',
+          'Retail building',
+          'School',
+          'Shopping centre',
+          'Stadium',
+          'Student accommodation',
+          'Train station',
+          'Warehouse'
+        ]
+        required: true
+        visible: true
+      - description: Use
+        element: notes
+        fieldName: 'facility-use'
+        type: MultiLineTextBox
+        required: true
+        visible: true
+      - description: Name
+        fieldName: name
+        type: TextBox
+        required: true
+        visible: true
+      - description: Code
+        fieldName: code
+        type: TextBox
+        required: false
+        visible: true
+      - description: Local name
+        element: notes
+        fieldName: 'facility-local-name'
+        type: TextBox
+        visible: true
+      - description: Overview
+        element: notes
+        fieldName: 'facility-overview'
+        type: MultiLineTextBox
+        required: false
+        visible: true
+      - description: 'GIA (㎡)'
+        element: facets
+        fieldName: 'facility-gia'
+        type: TextBox
+        visible: true
+      - description: Build date
+        element: facets
+        fieldName: 'build-date'
+        type: ComboBoxYear
+        required: false
+        visible: true
+      - description: Occupancy normal
+        element: facets
+        fieldName: 'occupancy-normal'
+        type: TextBox
+        required: false
+        visible: true
+      - description: Occupancy at peak
+        element: facets
+        fieldName: 'occupancy-peak'
+        type: TextBox
+        visible: true
+      - description: Listed status
+        element: facets
+        fieldName: 'listed-status'
+        type: ComboBox
+        enum: [
+          'None',
+          'Grade I listed',
+          'Grade II* listed',
+          'Grade II listed'
+        ]
+        visible: true
+      - description: Geo lat
+        element: facets
+        fieldName: location.lat
+        type: TextBox
+        required: false
+        visible: true
+      - description: Geo long
+        element: facets
+        fieldName: location.lon
+        type: TextBox
+        required: false
+        visible: true
+      - description: What3words location code
+        element: notes
+        fieldName: what3words
+        type: TextBox
+        visible: true
+      - description: Address
+        element: notes
+        fieldName: address
+        type: MultiLineTextBox
+        required: false
+        visible: true
+      - description: Postcode
+        element: facets
+        fieldName: postcode
+        type: MultiLineTextBox
+        required: false
+        visible: true
+      - description: Contact name
+        element: facets
+        fieldName: 'contact-name'
+        type: TextBox
+        required: false
+        visible: true
+      - description: Contact job title
+        element: notes
+        fieldName: 'contact-job-title'
+        type: TextBox
+        required: false
+        visible: true
+      - description: Contact organization
+        element: notes
+        fieldName: 'contact-organization'
+        type: TextBox
+        required: false
+        visible: true
+      - description: Contact telephone
+        element: notes
+        fieldName: 'contact-telephone'
+        type: TextBox
+        required: false
+        visible: true
+      - description: Contact mobile
+        element: notes
+        fieldName: 'contact-mobile'
+        type: TextBox
+        required: false
+        visible: true
+      - description: Contact email
+        element: notes
+        fieldName: 'contact-email'
+        type: TextBox
+        required: false
+        visible: true

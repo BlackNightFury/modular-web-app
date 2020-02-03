@@ -1,0 +1,44 @@
+@import '@/assets/styles/Antd/import/form.scss';
+
+.errorDescription {
+  padding: 2px 0 8px 0;
+}
+
+.input {
+  width: 60px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.linkContainer {
+  margin-bottom: 20px;
+}
+.bypassRadio {
+  width: 90px;
+}
+
+.form-grid-container-2 {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto;
+
+  @media (max-width: $sm-max-width) {
+    grid-template-columns: auto;
+  }
+}
+
+.buttonGroup {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.margin20 {
+  margin-bottom: 20px;
+}
+
+.sectionHeader {
+  font-size: $font-size-md !important;
+  color: $slate-grey !important;
+}

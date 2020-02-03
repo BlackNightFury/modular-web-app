@@ -1,0 +1,15 @@
+@import '@/assets/styles/mixins.scss';
+
+.input {
+  width: 60px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.tableCell {
+  display: table;
+}
+
+.highlighted {
+  background-color: #e4e9f0;
+}

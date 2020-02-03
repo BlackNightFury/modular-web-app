@@ -1,0 +1,52 @@
+aws:
+  project_region: 'eu-west-2'
+  appsync:
+    region: 'eu-west-2'
+    authenticationType: 'AWS_IAM'
+  ssl_cert: arn:aws:acm:us-east-1:575536853050:certificate/fdaf38b8-8aab-49b5-a9dd-022f47b832d4
+  account_id: 575536853050
+
+tenants:
+  672FB50-BE2B-405D-9526-CB81427B7B7E:
+    #TODO:
+    userPoolId: eu-west-2_lxIeqIk6B
+    userPoolWebClientId: 7t9s2dc3r227ibugf7b39arh06
+    assetImagesS3Bucket: reams-elias-mwa-test-tenant1-images
+
+  BA7E007F-761B-4A0F-AFAF-45B032AC19A2:
+    #TODO:
+    userPoolId: eu-west-2_1V05PkgQE
+    userPoolWebClientId: 2i4mc719tkp41ve8tqs9k515nh
+    assetImagesS3Bucket: reams-elias-mwa-test-tenant2-images
+
+  8720A63-FCE4-328E-3321-AD3F58797C7F:
+    #TODO:
+    userPoolId: eu-west-2_9sXkBck0h
+    userPoolWebClientId: 1puca6kupkkrhiat780fvakntd
+    assetImagesS3Bucket: reams-elias-mwa-test-tenant3-images
+
+  3333333-3333-3333-3333-333333333333:
+    userPoolId: eu-west-2_ApQzCnWYQ
+    userPoolWebClientId: 64u7glvtac9mvk2uooppgeglf1
+    assetImagesS3Bucket: reams-elias-mwa-test-test-tenant-images
+
+  1111111-1111-1111-1111-111111111111:
+    userPoolId: eu-west-2_AycguZ7UY
+    userPoolWebClientId: 2fro177v2vj684qnmdgverptms
+    assetImagesS3Bucket: reams-elias-mwa-test-reams-images
+
+globalUser:
+  userPoolId: eu-west-2_fVmjWsbW5
+  userPoolWebClientId: 2plikgdp6hiurj4433gv22g0v8
+
+adalConfig:
+  tenant: d87c0cf5-fd89-4d04-92c0-eb35aeea365d
+  clientId: c3a6bb81-b75e-4442-a219-6b5e28403325
+
+elasticSearchEndpoint: https://search-reams-elias-mwa-test-es-tewqqqn57duaocga7f4j55y5o4.eu-west-2.es.amazonaws.com
+
+elasticSearchArn: arn:aws:es:eu-west-2:575536853050:domain/reams-elias-mwa-test-es
+
+logSubscriptionEnabled: false
+
+googleApiKey: AIzaSyAp_49p80_ouhGpfFOLdw8eBbPkPF-cHO0

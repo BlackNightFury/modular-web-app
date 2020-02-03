@@ -1,0 +1,109 @@
+@import '@/assets/styles/mixins.scss';
+
+.photoSelector {
+  display: none !important;
+}
+
+.uploadBtnsContainer {
+  margin-bottom: 0.76rem;
+  padding-top: 7px;
+}
+
+.photoWrapper {
+  color: $dark-grey;
+  margin-bottom: 0.76rem;
+  width: 100%;
+  .uploadCamera {
+    font-size: $font-size-xxl;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .uploadFile {
+    font-size: $font-size-lg;
+    vertical-align: middle;
+  }
+  .splitter {
+    margin: 0 5px;
+  }
+}
+
+.actionContainer {
+  background: black;
+  float: left;
+  width: 100%;
+  padding: 5px 28px;
+}
+
+.validationContainer {
+  background: black;
+  float: left;
+  width: 100%;
+  padding: 5px 28px;
+}
+
+.deleteImgBtn {
+  color: $pink;
+  float: right;
+  margin-right: 28px;
+  background: black;
+  outline: none;
+  border: solid 1px transparent;
+  height: 30px;
+  padding-top: 0;
+  text-decoration: none;
+}
+.deleteImgBtn:focus,
+.deleteImgBtn:hover {
+  border-color: transparent;
+  background: black;
+}
+.deleteImgBtn:after {
+  animation: 0s !important;
+}
+
+.confirmMessage {
+  color: $pink;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.successMessage {
+  color: $good-place-green;
+  line-height: 32px;
+}
+.successText {
+  margin-left: 5px;
+}
+
+.cancelDeleteButton {
+  color: white;
+  float: right;
+  margin-right: 10px;
+  background: black;
+  outline: none;
+  height: 30px;
+  padding-top: 0;
+  text-decoration: none;
+}
+
+.cancelDeleteButton:focus,
+.cancelDeleteButton:hover {
+  background: black;
+}
+
+.confirmDeleteButton {
+  color: $pink;
+  border: solid 1px $pink;
+  float: right;
+  background: black;
+  outline: none;
+  height: 30px;
+  padding-top: 0;
+  text-decoration: none;
+}
+
+.confirmDeleteButton:focus,
+.confirmDeleteButton:hover {
+  background: black;
+}

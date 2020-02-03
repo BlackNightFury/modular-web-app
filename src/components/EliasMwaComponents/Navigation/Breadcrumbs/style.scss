@@ -1,0 +1,119 @@
+@import '@/assets/styles/mixins.scss';
+
+.breadcrumbs {
+  flex: 1;
+}
+
+.path {
+  color: $black;
+  display: flex;
+  align-items: center;
+}
+
+.itemContainer {
+  cursor: pointer;
+  padding: 0 10px;
+  height: 40px;
+  border: 1px solid $sky-grey;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  color: $slate-grey;
+  font-weight: normal;
+  max-width: 20%;
+
+  &.home {
+    max-width: unset;
+    justify-content: center;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.noBorder {
+    background: none;
+    border: none;
+    margin-left: 15px;
+    padding-left: 0;
+  }
+
+  a,
+  span {
+    color: $slate-grey;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.breadcrumbItemContainer {
+  display: flex;
+  width: calc(100% - 345px);
+
+  .itemContainer {
+    margin-left: 10px;
+  }
+}
+
+.home {
+  font-size: 22px;
+  color: $battleship-grey;
+}
+
+.homeContainer {
+  display: inline-block;
+  @media (max-width: $md-max-width) {
+    display: none;
+  }
+}
+
+.menuCollapse {
+  display: none;
+  @media (max-width: $md-max-width) {
+    display: inline-block;
+  }
+}
+
+.dropdownContainer {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  flex: 1;
+  max-width: 400px;
+
+  @media (max-width: 624px) {
+    max-width: calc(400px - 624px + 100%);
+  }
+
+  :global(.ant-select) {
+    width: 100%;
+  }
+
+  :global(.ant-select-selection) {
+    height: 40px;
+    background: transparent;
+    border-color: $sky-grey;
+  }
+
+  :global(.ant-select-selection__rendered) {
+    line-height: 40px;
+    font-size: $font-size-sm;
+    color: $dark-grey;
+    position: relative;
+  }
+}
+
+:global(.ant-select-dropdown-menu) {
+  background: $mist-grey;
+  font-size: $font-size-sm;
+  color: $dark-grey;
+  padding: 10px 0;
+}
+
+:global(.ant-select-dropdown-menu-item) {
+  padding: 4px 12px;
+}

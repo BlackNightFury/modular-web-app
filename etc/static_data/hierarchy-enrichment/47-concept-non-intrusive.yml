@@ -1,0 +1,62 @@
+qa_rules:
+  - duplicate_barcodes
+  - data_not_synched
+  - floors_must_have_spaces
+  - floor_names_must_be_unique
+  - spaces_must_have_assets
+  - space_inaccessible_past_date
+
+asset_types:
+  mandatory_types: [40452, 40453, 40454, 40455]
+  mappings:
+  - description: Gas boiler MUST have flues AND expansion AND heaters
+    ids: [40971, 40972, 40973, 40974, 40975, 40976, 40977, 40978, 40979, 40980, 40985, 40986, 40987, 40988, 40989, 40990, 40991]
+    options:
+    - linked_assets:
+      - label: Flue
+        ids: [41054, 41055, 41056, 41057, 41058]
+        location: Facility
+        moscow: Must
+      - label: Expansion
+        ids: [41044]
+        location: Facility
+        moscow: Must
+      - label: Heat emitter
+        ids: [41033, 41034, 41035, 41052, 41053, 41055, 41056, 41057, 41058, 41070, 41072, 41124]
+        location: Facility
+        moscow: Must
+
+  - description: Heating expansion MUST have feed AND expansion tank, OR a pressurisation
+      unit
+    ids: [41044]
+    options:
+    - linked_assets:
+      - label: Feed
+        ids: [41097, 41098]
+        location: Facility
+        moscow: Must
+      - label: Expansion tank
+        ids: [41134]
+        location: Facility
+        moscow: Must
+    - linked_assets: #This is an OR
+      - label: Pressurisation unit
+        location: Facility
+        ids: [41092, 41094]
+        moscow: Must
+  - description: Heating pressurisation unit MUST have expansion vessel
+    ids: [41092, 41094]
+    options:
+    - linked_assets:
+      - label: Expansion vessel
+        ids: [41044]
+        location: Space
+        moscow: Must
+  - description: Card reader MUST have access control system
+    ids: [40452]
+    options:
+    - linked_assets:
+      - label: Access control system
+        ids: [40856, 40857, 40908]
+        location: Facility
+        moscow: Must

@@ -1,0 +1,21 @@
+@import '@/assets/styles/mixins.scss';
+
+.actionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.noCancel {
+  justify-content: flex-end;
+}
+
+.warningText {
+  color: $orange;
+  margin-top: 10px;
+}
+
+.marginRight10 {
+  margin-right: 10px;
+}

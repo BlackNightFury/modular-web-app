@@ -1,0 +1,133 @@
+// Import mixins
+@import '@/assets/styles/mixins.scss';
+@import '@/assets/styles/style.scss';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  ANT DESIGN FORM */
+
+.ant-form input[type='file'] {
+  min-height: 40px;
+}
+
+.ant-form input.ant-input-sm[type='file'] {
+  min-height: 48px;
+}
+
+.ant-form input.ant-input-lg[type='file'] {
+  min-height: 52px;
+}
+
+.ant-form-item-label {
+  text-align: left;
+  white-space: normal;
+}
+
+.ant-form-item > .ant-form-item,
+.ant-form-item :not(.ant-form) > .ant-form-item {
+  margin-top: -2px;
+}
+
+form .ant-select:only-child,
+form .ant-cascader-picker:only-child {
+  display: inline-block;
+}
+
+.content {
+  // padding: 0 10px;
+  position: relative;
+  ::placeholder {
+    color: #a5b7bd;
+  }
+}
+
+.content label {
+  color: $dark-grey;
+  line-height: 30px;
+  font-size: $font-size-sm;
+}
+
+.content input {
+  color: $dark-grey;
+  font-size: $font-size-sm;
+}
+
+.content textarea {
+  color: $dark-grey;
+  font-size: $font-size-sm;
+}
+
+.content :global(.ant-select-selection-selected-value) {
+  color: $dark-grey;
+}
+
+.formItem {
+  margin-bottom: 10px;
+  padding: 0 !important;
+  & > div {
+    padding: 0 !important;
+  }
+}
+
+.marginBottom0 {
+  margin-bottom: 0;
+}
+
+.marginBottom10 {
+  margin-bottom: 10px;
+}
+
+.marginBottom20 {
+  margin-bottom: 20px;
+}
+
+.marginTop30 {
+  margin-top: 30px;
+}
+
+.btnSubmit {
+  float: right;
+  color: rgb(234, 76, 86);
+  border-color: rgb(234, 76, 86);
+}
+
+:global(.form-drawer-content) {
+  :global(.ant-form-item-control) {
+    display: flex;
+    flex-direction: column-reverse;
+    :global(.ant-form-explain) {
+      margin-top: 0;
+      padding: 0 0 10px 0;
+    }
+  }
+}
+
+.marginTop4 {
+  margin-top: 4px;
+}
+
+.errorAnchor {
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ant-form-item-control-wrapper {
+  color: $dark-grey;
+  input {
+    color: $dark-grey;
+  }
+  textarea {
+    color: $dark-grey;
+  }
+  :global(.ant-select-selection-selected-value) {
+    color: $dark-grey;
+  }
+}
+
+.form-validation-error-text {
+  font-family: $font-family;
+  font-size: $font-size-xsm;
+  color: $pink !important;
+}

@@ -1,0 +1,34 @@
+{
+  "estate": [
+    {
+      "key": "1",
+      "location": "Leeds",
+      "postcode": "LS1",
+      "bu": 1985,
+      "name": "Bredi house",
+      "gia": 10.05,
+      "backlog": 1.2,
+      "rag": 1
+    },
+    {
+      "key": "2",
+      "location": "Huddersfi",
+      "postcode": "HS2",
+      "bu": 2001,
+      "name": "Prospect",
+      "gia": 40.13,
+      "backlog": 0.7,
+      "rag": 2
+    },
+    {
+      "key": "3",
+      "location": "Wigan",
+      "postcode": "WN6",
+      "bu": 2011,
+      "name": "Orly mews",
+      "gia": 121.4,
+      "backlog": 3.4,
+      "rag": 2
+    }
+  ]
+}

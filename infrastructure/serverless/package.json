@@ -1,0 +1,43 @@
+{
+  "name": "sls-appsync-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "deploy": "./node_modules/.bin/serverless deploy",
+    "remove": "./node_modules/.bin/serverless remove"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@newrelic/aws-sdk": "^0.3.0",
+    "aws-amplify": "^1.1.30",
+    "csvtojson": "^2.0.8",
+    "elasticsearch": "^16.1.1",
+    "http-aws-es": "^6.0.0",
+    "js-yaml": "^3.13.1",
+    "json2csv": "^4.5.3",
+    "lodash": "^4.17.11",
+    "middy": "^0.28.3",
+    "moment": "^2.24.0",
+    "mssql": "^4.3.2",
+    "newrelic": "^5.11.0",
+    "node-fetch": "^2.6.0",
+    "node-json-transform": "^1.0.19",
+    "sharp": "^0.23.2",
+    "shortid": "^2.2.14"
+  },
+  "devDependencies": {
+    "@anttiviljami/serverless-stack-output": "^0.3.1",
+    "aws-sdk": "^2.388.0",
+    "chai": "^4.2.0",
+    "fs": "0.0.1-security",
+    "serverless": "1.35.1",
+    "serverless-appsync-plugin": "^1.0.9",
+    "serverless-plugin-ifelse": "^1.0.4",
+    "serverless-plugin-log-subscription": "^1.2.0",
+    "serverless-prune-plugin": "^1.3.2",
+    "serverless-s3-deploy": "^0.8.2",
+    "serverless-s3-sync": "^1.7.1"
+  }
+}

@@ -1,0 +1,21 @@
+@import '@/assets/styles/mixins.scss';
+
+.customActionsContainer {
+  margin: auto;
+}
+.customActionBtn {
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  color: white;
+  background: transparent;
+  border: none;
+  :global(.anticon) {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+.showcaseIframe {
+  height: calc(100vh - 280px);
+}

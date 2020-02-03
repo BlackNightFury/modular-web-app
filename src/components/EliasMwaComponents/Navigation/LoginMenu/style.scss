@@ -1,0 +1,232 @@
+@import '@/assets/styles/mixins.scss';
+
+.menu {
+  border-right: 1px solid $gray-border;
+  box-sizing: content-box;
+  height: 100%;
+
+  @at-root {
+    @media (min-width: 1435px) {
+      :global(.settings__fixedWidth) .menu {
+        border-left: 1px solid $gray-border;
+      }
+    }
+  }
+
+  &:global(.menu-unfold) {
+    :global(.ant-layout-sider-children) {
+      margin-left: calc(-30% + 12px);
+      @media (max-width: $md-max-width) {
+        margin-left: calc(-100% + 12px);
+      }
+    }
+  }
+
+  :global(.ant-layout-sider-children) {
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    width: 30%;
+    transition: all 0.5s ease-in-out;
+    background: $sky-grey;
+    border-right: solid $battleship-grey 1px;
+
+    @media (max-width: $md-max-width) {
+      width: 100%;
+    }
+  }
+
+  &:global(.ant-layout-sider-collapsed) {
+    :global(.ant-layout-sider-children),
+    :global(.ant-layout-sider-trigger) {
+      width: 8.33333333% !important;
+    }
+  }
+
+  :global(.ant-menu-inline-collapsed-tooltip) .icon {
+    display: none;
+  }
+
+  :global(.ant-layout-sider-zero-width-trigger) {
+    top: 10px !important;
+  }
+
+  :global(.ant-menu-item),
+  :global(.ant-menu-submenu-title) {
+    transition: padding 0s !important;
+  }
+
+  .collapseContainer {
+    position: absolute;
+    right: -30px;
+    top: 5px;
+    transition: all 0.2s ease-in-out;
+
+    .iconContainer {
+      cursor: pointer;
+      background: $sky-grey;
+      border: 1px solid $battleship-grey;
+      border-left: none;
+      border-radius: 4px;
+      font-size: 30px;
+      color: $slate-grey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+    }
+    .iconContainer:after {
+      padding: 0;
+      margin: 0;
+      display: block;
+      content: '';
+      width: 15px;
+      height: 5px;
+      background-color: $sky-grey;
+      position: absolute;
+      left: 0;
+      top: -1px;
+    }
+    .iconContainer:before {
+      padding: 0;
+      margin: 0;
+      display: block;
+      content: '';
+      width: 15px;
+      height: 5px;
+      background-color: $sky-grey;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+    }
+  }
+}
+
+:global(.menu-fold) {
+  @media (max-width: $md-max-width) {
+    :global(.ant-layout-sider-children) {
+      border-color: rgba(171, 186, 199, 0);
+    }
+    .collapseContainer {
+      right: 0;
+      .iconContainer {
+        border-color: rgba(171, 186, 199, 0);
+      }
+    }
+  }
+}
+
+.scrollbarDesktop {
+  height: calc(100vh - 52px) !important;
+  overflow: visible !important;
+}
+
+.scrollbarMobile {
+  height: calc(100vh - 97px) !important;
+  overflow: visible !important;
+}
+
+.light {
+  background: $white;
+
+  :global(.ant-layout-sider-trigger) {
+    width: 25% !important;
+    color: inherit;
+    background: $gray-border;
+  }
+
+  :global(.ant-menu-item) > :global(a) {
+    color: $text;
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  :global(.drawer-content) {
+    background: $white !important;
+  }
+}
+
+:global(.ant-menu-inline-collapsed-tooltip) [class*='style__icon'] {
+  display: none;
+}
+
+:global(.ant-menu-inline-collapsed-tooltip) [class*='icon__'] {
+  display: none;
+}
+
+.original {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 768px) {
+    margin-bottom: 100px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: $sky-grey;
+}
+
+.header {
+  align-self: flex-start;
+  width: 100%;
+  padding: 2rem;
+
+  @media (max-width: $md-max-width) {
+    padding: rem(40) rem(20) rem(40);
+  }
+  .headerTitle {
+    font-size: $font-size-lg;
+  }
+  .headerContent {
+    font-size: $font-size-md;
+    margin-top: 1rem;
+    .contactEmail {
+      color: $link-blue;
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer {
+  align-self: flex-end;
+  width: 100%;
+  color: $text;
+  padding: rem(40);
+  font-size: $font-size-sm;
+
+  @media (max-width: $md-max-width) {
+    padding: rem(40) rem(20) rem(40);
+  }
+
+  ul {
+    margin-bottom: 0;
+    li {
+      margin-right: rem(20);
+      text-transform: uppercase;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        color: $text;
+        opacity: 0.7;
+        line-height: 1.4;
+        display: inline-block;
+        margin-right: rem(10);
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

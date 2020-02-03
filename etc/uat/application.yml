@@ -1,0 +1,65 @@
+aws:
+  project_region: 'eu-west-2'
+  appsync:
+    region: 'eu-west-2'
+    authenticationType: 'AWS_IAM'
+  ssl_cert: arn:aws:acm:us-east-1:575536853050:certificate/fdaf38b8-8aab-49b5-a9dd-022f47b832d4
+  dns_prefix: test
+  account_id: 575536853050
+
+tenants:
+  672FB50-BE2B-405D-9526-CB81427B7B7E:
+    enabled: false
+    userPoolId: eu-west-2_hQXmhfGCB
+    userPoolWebClientId: 5df3sqmm6uv7m08tm9big484rn
+    assetImagesS3Bucket: reams-elias-mwa-uat-tenant1-images
+
+  BA7E007F-761B-4A0F-AFAF-45B032AC19A2:
+    enabled: false
+    userPoolId: eu-west-2_ldc09UyQv
+    userPoolWebClientId: 55fe7o5ahvdbp2435uuig3u1lc
+    assetImagesS3Bucket: reams-elias-mwa-uat-tenant2-images
+
+  8720A63-FCE4-328E-3321-AD3F58797C7F:
+    enabled: false
+    userPoolId: eu-west-2_ZsyAlVaRd
+    userPoolWebClientId: 5ig37ameh4voomt3p9mei65lp2
+    assetImagesS3Bucket: reams-elias-mwa-uat-tenant3-images
+
+  3333333-3333-3333-3333-333333333333:
+    userPoolId: eu-west-2_DXGivWBBN
+    userPoolWebClientId: 614qrr4ic9lhlk44f147717f0f
+    assetImagesS3Bucket: reams-elias-mwa-uat-test-tenant-images
+
+  1111111-1111-1111-1111-111111111111:
+    userPoolId: eu-west-2_uwC0E1uxA
+    userPoolWebClientId: 299m531liv9g02vjtdj7111it5
+    assetImagesS3Bucket: reams-elias-mwa-uat-reams-images
+
+  97000000-0000-0000-0000-00000000000: #ba
+    userPoolId: eu-west-2_QtfJCE97n
+    userPoolWebClientId: 767dqf4eb9i375ub8da6d4b9lg
+    assetImagesS3Bucket: reams-elias-mwa-uat-ba-images
+    enabled: true
+    cleanUp:
+      lambdaDisabled: true
+
+globalUser:
+  userPoolId: eu-west-2_Q0BiDKwb9
+  userPoolWebClientId: 4um0cuu95d9gnuicqi0mgsm5dp
+
+
+adalConfig:
+  tenant: d87c0cf5-fd89-4d04-92c0-eb35aeea365d
+  clientId: c3a6bb81-b75e-4442-a219-6b5e28403325
+
+
+elasticSearchEndpoint: https://search-reams-elias-mwa-uat-es-7vlsyagyfvixub7oygu4gi5cbu.eu-west-2.es.amazonaws.com
+elasticSearchArn: arn:aws:es:eu-west-2:575536853050:domain/reams-elias-mwa-uat-es
+
+logSubscriptionEnabled: false
+
+cleanUp:
+  lambdaDisabled: true
+
+googleApiKey: AIzaSyAp_49p80_ouhGpfFOLdw8eBbPkPF-cHO0

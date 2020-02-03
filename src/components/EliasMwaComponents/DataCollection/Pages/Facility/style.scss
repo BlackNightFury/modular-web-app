@@ -1,0 +1,98 @@
+@import '../CommonPage/style.scss';
+
+.floorsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: -16px;
+}
+
+.conditionSurveyContainer {
+  margin-bottom: 40px;
+}
+
+.conditionSurveyElContainer {
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
+
+  :global(.ant-table-empty .ant-table-placeholder) {
+    border-bottom: none !important;
+  }
+
+  :global(.ant-collapse .ant-collapse-item .ant-collapse-header .ant-collapse-arrow) {
+    left: unset;
+    top: calc(50% - 2px);
+    border-left: 1px solid #e4e9f0;
+    padding-left: 16px;
+    color: $battleship-grey;
+  }
+
+  :global(.ant-collapse .ant-collapse-item .ant-collapse-header) {
+    background: $alternating-sage;
+    padding-right: 60px;
+  }
+
+  :global(.ant-collapse .ant-collapse-item .ant-collapse-header .collapse-header-container) {
+    padding-right: 0;
+  }
+
+  :global(.ant-table .ant-table-tbody > tr) {
+    background: white !important;
+    &:hover {
+      background: white !important;
+    }
+    &:hover td {
+      background: white !important;
+      font-size: $font-size-md;
+      color: unset;
+    }
+  }
+
+  :global(.ant-table .ant-table-tbody > tr td) {
+    height: 32px !important;
+    padding: 6px 10px;
+    font-size: $font-size-md;
+  }
+
+  :global(.group-level-2 td:first-child) {
+    padding-left: 2px !important;
+  }
+
+  :global(.group-level-3 td:first-child) {
+    padding-left: 5px !important;
+  }
+
+  :global(.group-level-3 td) {
+    color: $battleship-grey !important;
+  }
+
+  :global(.group-level-4 td:first-child) {
+    padding-left: 20px !important;
+  }
+
+  .multiActionButton {
+    cursor: pointer;
+  }
+
+  .visualStatusIndicator {
+    i {
+      font-size: $font-size-md;
+      width: 14px;
+    }
+    color: $slate-grey !important;
+    margin-top: -2px;
+    margin-right: 5px !important;
+  }
+}
+
+.facilityDetailsLabel {
+  color: $battleship-grey;
+  font-weight: normal;
+  font-size: $font-size-lg;
+}
+
+.facilityName {
+  font-weight: bold;
+  color: $slate-grey;
+  font-size: $font-size-lg;
+}

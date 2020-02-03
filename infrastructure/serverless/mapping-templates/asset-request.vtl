@@ -1,0 +1,15 @@
+#**
+    The value of 'payload' after the template has been evaluated
+    will be passed as the event to AWS Lambda.
+*#
+$util.qr($context.args.put("identity", $context.identity))
+$util.qr($context.args.input.put("createdAt", $util.time.nowISO8601()))
+$util.qr($context.args.input.put("createdUser", $createdUser))
+$util.qr($context.args.input.put("dataType", "asset"))
+$util.qr($context.args.input.put("environment", "${stageEnv}"))
+
+{
+    "version" : "2017-02-28",
+    "operation": "Invoke",
+    "payload": $util.toJson($context.arguments)
+}

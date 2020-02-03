@@ -1,0 +1,12 @@
+{
+  "env": {
+    "account": {"ENV": "MWA_ACCOUNT"},
+    "stage": {"ENV": "MWA_ENVIRONMENT"},
+    "database": {"ENV": "DB_NAME"},
+    "host": {"ENV": "DB_HOST"},
+    "user": {"ENV": "DB_USER"},
+    "driver": { "require" : { "ENV" : "DB_DRIVER" } },
+    "password": {"ENV": "DB_PASSWORD"},
+    "tenant": {"ENV": "TENANT_ID"}
+  }
+}

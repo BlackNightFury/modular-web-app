@@ -1,0 +1,9 @@
+*.json
+**/*.json
+
+.umirc.*.js
+
+node_modules
+
+public
+dist

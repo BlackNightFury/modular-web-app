@@ -1,0 +1,26 @@
+allowRoute: false
+header: New facility
+description: "As this is the first time you're accessing this facility, please confirm you have read the important documentation related to this site:"
+fieldsets:
+  - name: "Project: "
+    questions:
+      - fieldName: project_docs
+        type: DocLink
+        inline: true
+        visible: true
+      - description: I have read and understood the project documentation
+        fieldName: did_check_project_docs
+        type: CheckBox
+        inline: true
+        visible: true
+  - name: "Facility: "
+    questions:
+      - fieldName: facility_docs
+        type: DocLink
+        inline: true
+        visible: true
+      - description: I have read and understood the facility documentation
+        fieldName: did_check_facility_docs
+        type: CheckBox
+        inline: true
+        visible: true

@@ -1,0 +1,35 @@
+@import '@/assets/styles/Antd/import/form.scss';
+
+.btnSpaceGroup {
+  margin-right: -10px;
+  float: right;
+}
+
+.btnSpaceGroup button {
+  color: rgb(234, 76, 86);
+  border-color: rgb(234, 76, 86);
+}
+
+.btnSpace {
+  padding: 0 10px;
+}
+
+.dropDownSpace {
+  width: 30px;
+  padding: 0;
+}
+
+.dropDownMenu {
+  padding: 10px 0;
+}
+
+.dropDownMenuItem {
+  font-size: $font-size-sm !important;
+  padding: 0 10px !important;
+}
+
+.disabledDropDownMenuItem {
+  font-size: $font-size-sm !important;
+  padding: 0 10px !important;
+  color: rgba(0, 0, 0, 0.25);
+}

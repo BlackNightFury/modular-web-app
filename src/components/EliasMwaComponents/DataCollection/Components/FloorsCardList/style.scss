@@ -1,0 +1,64 @@
+@import '@/assets/styles/mixins.scss';
+@import '@/assets/styles/style.scss';
+@import '../ActionCard/style.scss';
+
+.visualStatusIndicator {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+  i {
+    font-size: $font-size-sm;
+    width: 12px;
+    border-radius: 50%;
+  }
+}
+
+.statusText {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.floorName {
+  color: $slate-grey;
+}
+
+.projectName {
+  color: $battleship-grey;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  color: #748595;
+  height: 100%;
+}
+
+.highlightedBackground {
+  background: $alternating-sage;
+}
+
+.cardDetails {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  color: $slate-grey;
+  font-family: $font-family;
+}
+
+.vCardInfoContainer {
+  flex-wrap: wrap;
+  flex: 1;
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+.vActionButtons {
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+.paragraph {
+  width: 100%;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,13 @@
+{
+  "plugins": ["cypress"],
+  "env": {
+    "cypress/globals": true
+  },
+  "extends": ["plugin:cypress/recommended", "../config/node.eslintrc"],
+  "rules": {
+    "import/no-cycle": 0,
+    "cypress/no-assigning-return-values": 0,
+    "cypress/no-unnecessary-waiting": 0,
+    "no-throw-literal": 0
+  }
+}

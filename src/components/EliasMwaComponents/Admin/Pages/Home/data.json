@@ -1,0 +1,38 @@
+{
+  "facilities": [
+    {
+      "key": "1",
+      "project": "NHS",
+      "postcode": "LS1",
+      "name": "Bredi house",
+      "id": 2412,
+      "assets": 1150,
+      "rag": 1
+    },
+    {
+      "key": "2",
+      "project": "NHS",
+      "postcode": "HD6",
+      "name": "Prospect place",
+      "id": 2413,
+      "assets": 2457,
+      "rag": 0
+    }
+  ],
+  "messages": [
+    {
+      "key": "1",
+      "from": "Steve",
+      "date": "2018-09-11",
+      "message": "Hi Joe, we found a fee issues with..."
+    }
+  ],
+  "schedules": [
+    {
+      "key": "1",
+      "date": "2018-12-11",
+      "type": "warning",
+      "content": "This is warning event."
+    }
+  ]
+}

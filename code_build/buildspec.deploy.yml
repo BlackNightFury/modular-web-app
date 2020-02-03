@@ -1,0 +1,106 @@
+version: 0.2
+
+env:
+  variables:
+     # TF_LOG: DEBUG
+     SKIP_PROFILE_CHECK: 1 
+     # AWS_PROFILE: reams-test-build
+     AWS_SDK_LOAD_CONFIG: 1
+
+     CYPRESS_NODES: 1
+     USE_PARALLEL: false
+#   parameter-store:
+#      AWS_PROFILE: "reams-dev"
+
+phases:
+  install:
+    # runtime-versions:
+    #   nodejs: 10
+    commands:
+       - mkdir -p ~/.aws
+       - cp ./code_build/config ~/.aws/config
+       - aws --version
+       - aws sts get-caller-identity
+       - wget https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip
+       - unzip terraform_0.11.11_linux_amd64.zip
+       - sudo mv terraform /usr/local/bin/
+       - npm install
+       - npm run install-all
+       - npm run output-versions
+       
+       - apt-get update
+       - apt-get install -y jq
+       - apt-get install -y curl
+  #pre_build:
+    #commands:
+      # - command
+      # - command
+  build:
+    commands:
+      - BUILD_STATUS=FAILURE
+      # - mkdir -p ~/.aws
+      # - cp ./code_build/config ~/.aws/config
+      # - npm run test
+      # - export TF_CLI_ARGS="-backend-config=\"role_arn=arn:aws:iam::575536853050:role/REAMSBuildToolModularWebAppRole\""
+      - npm run terraform init test
+      # # - unset TF_CLI_ARGS
+      - export TF_CLI_ARGS="-auto-approve"
+      # - npm run terraform plan test
+      - npm run terraform apply test
+      #For https://github.com/aws/aws-sdk-js/issues/1916
+      - |
+        unset AWS_PROFILE
+        temp_role=$(aws sts assume-role --role-arn arn:aws:iam::575536853050:role/REAMSBuildToolModularWebAppRole --role-session-name "REAMSBuildToolModularWebAppRole")
+
+        echo temp_role
+
+        export AWS_ACCESS_KEY_ID=$(echo $temp_role | jq .Credentials.AccessKeyId | xargs)
+        export AWS_SECRET_ACCESS_KEY=$(echo $temp_role | jq .Credentials.SecretAccessKey | xargs)
+        export AWS_SESSION_TOKEN=$(echo $temp_role | jq .Credentials.SessionToken | xargs)
+
+        echo $AWS_ACCESS_KEY_ID
+        echo $AWS_SECRET_ACCESS_KEY
+        echo $AWS_SESSION_TOKEN
+
+      - SKIP_ACCEPTANCE_TESTS=true npm run serverless-deploy -- --stage int --account test
+      - BUILD_STATUS=SUCCESS
+    finally:
+      - echo $BUILD_STATUS
+      - ./scripts/slack_notification.sh --status $BUILD_STATUS --project $CODEBUILD_BUILD_ID
+
+  post_build:
+    commands:
+      if [ $BUILD_STATUS==SUCCESS ]
+      then
+        TEST_STATUS=FAILURE
+        TEST_SUITE=api
+        npm run test:infrastructure-acceptance -- --stage int --account test
+        TEST_STATUS=SUCCESS
+        ./scripts/slack_notification.sh --status $TEST_STATUS --project $CODEBUILD_BUILD_ID --type TEST --suite=$TEST_SUITE
+
+        TEST_STATUS=FAILURE
+        TEST_SUITE=ui
+        npm run cypress:run-remote -- --stage int --account test
+        TEST_STATUS=SUCCESS
+      fi
+    finally:
+      if [ $BUILD_STATUS==SUCCESS ]
+      then
+        ./scripts/slack_notification.sh --status $TEST_STATUS --project $CODEBUILD_BUILD_ID --type TEST --suite=$TEST_SUITE
+      end
+#artifacts:
+  #files:
+    # - location
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+
+cache:
+  paths:
+    - ./node_modules/**/*
+    - ./infrastructure/serverless/node_modules/**/*
+    - ./infrastructure/acceptance_tests/node_modules/**/*
+    - ./infrastructure/db-migrations/node_modules/**/*
+    - ./cypress/node_modules/**/*
+    - /usr/local/lib/node_modules

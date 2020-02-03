@@ -1,0 +1,58 @@
+@import '@/assets/styles/mixins.scss';
+
+.contextPanel {
+  display: block;
+  margin: 0 10px;
+}
+
+.buttonGroup {
+  display: flex;
+  margin-left: 5px;
+}
+
+.button {
+  flex: 1;
+}
+
+.secondaryButton {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.alert {
+  display: flex;
+  flex-direction: row;
+}
+
+.alertText {
+  vertical-align: middle;
+}
+
+.warning {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 3px 5px 0 0;
+  background-color: $warning-amber;
+  border: solid 1px $slate-grey;
+}
+
+.error {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 3px 5px 0 0;
+  background-color: $error-pink;
+  border: solid 1px $slate-grey;
+}
+
+.docsContainer {
+  margin-bottom: 15px;
+}

@@ -1,0 +1,167 @@
+@import '@/assets/styles/mixins.scss';
+
+.login {
+  background-size: cover;
+  background-color: $gray-lighten-more;
+  background-position: center center;
+}
+
+.emailInput {
+  text-transform: lowercase;
+  color: $dark-grey !important;
+}
+
+.passwordInput {
+  color: $dark-grey !important;
+}
+
+.showHideDecorator {
+  position: absolute;
+  right: 1px;
+  top: -7px;
+  outline: none;
+  border: solid 1px transparent;
+  height: 30px;
+  padding-top: 0;
+  text-decoration: none;
+  color: $battleship-grey;
+}
+
+.showHideDecorator:focus,
+.showHideDecorator:hover {
+  border-color: transparent;
+  color: $battleship-grey;
+}
+
+.showHideDecorator:after {
+  animation: 0s !important;
+}
+
+.title {
+  margin: 0 auto;
+  max-width: rem(740);
+  text-align: center;
+  padding-left: rem(20);
+  padding-right: rem(20);
+  h1 {
+    font-weight: 900;
+    margin-bottom: rem(30);
+  }
+}
+
+.block {
+  padding: rem(40) rem(40) rem(80);
+  width: 100%;
+  align-self: center;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: $md-max-width) {
+    padding: rem(20);
+  }
+}
+
+.inner {
+  min-width: rem(300);
+  max-width: rem(500);
+  margin: 0 auto;
+  padding: rem(50) rem(40) rem(20);
+  border-radius: 10px;
+  overflow: hidden;
+  // background-color: $white;
+  position: relative;
+
+  @media (max-width: $md-max-width) {
+    padding: 0;
+  }
+}
+
+.form {
+  position: relative;
+  z-index: 2;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.azureLogin {
+  background: $mist-grey;
+  img {
+    width: 75px;
+  }
+}
+
+.logoContainer img {
+  width: 230px;
+}
+
+.loginForm {
+  margin-left: 90px;
+  width: 230px;
+
+  label {
+    font-family: 'Lato', sans-serif;
+    font-size: $font-size-md;
+    color: $slate-grey;
+  }
+
+  :global(.ant-form-item) {
+    margin-bottom: 0;
+  }
+
+  .actionGroup {
+    margin-top: 20px;
+  }
+
+  .loginButtonGroup {
+    float: right;
+  }
+
+  .loginButton {
+    width: 70px;
+    background-color: #ea4c56;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    &:focus {
+      border-color: white;
+    }
+    &:hover {
+      background: white;
+      color: rgb(234, 76, 86);
+      border-color: rgb(234, 76, 86);
+    }
+  }
+
+  .multiFunctionButton {
+    width: 35px;
+    padding: 0;
+    background-color: #ea4c56;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    &:focus {
+      border-color: white;
+    }
+    &:hover {
+      background: white;
+      color: rgb(234, 76, 86);
+      border-color: rgb(234, 76, 86);
+    }
+  }
+
+  .forgotPassword {
+    display: inline-block;
+    margin: 10px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: $font-size-sm;
+    color: $slate-grey;
+    text-decoration: underline;
+  }
+}
+
+.office365 {
+  padding: 0.3rem 0.7rem !important;
+}
+.office365Img {
+  width: 70px;
+}

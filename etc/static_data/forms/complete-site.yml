@@ -1,0 +1,22 @@
+allowRoute: false
+fieldsets:
+  - name: Complete Site
+    properties:
+      columns: 2
+      size: lg
+    questions:
+      - description: Did you have access to the site logbook
+        fieldName: did_you_have_access_to_the_site_logbook
+        type: CheckBox
+        inline: true
+        visible: true
+      - description: Have you signed out of the logbook
+        fieldName: have_you_signed_out_of_the_logbook
+        type: CheckBox
+        inline: true
+        visible: true
+      - description: Has the survey been completed in line with the engineer brief
+        fieldName: has_survey_been_completed_in_line_with_engineer_brief
+        type: CheckBox
+        inline: true
+        visible: true

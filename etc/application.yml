@@ -1,0 +1,168 @@
+aws:
+  project_region: eu-west-2
+  appsync:
+    authenticationType: API_KEY
+  content_delivery:
+    bucket_region: eu-west-1
+
+lambda:
+  prune_automatic: true
+  prune_number: 25
+
+tenants:
+  672FB50-BE2B-405D-9526-CB81427B7B7E:
+    name: Edge hill university
+    dns: edgehill.co.uk
+    id: edgehill
+    enabled: true
+    legacy_project_id: 173
+    legacy_hierarchy_id: 47
+    virtual_asset_in_space: true
+    cleanUp:
+      lambdaDisabled: false
+      localDisabled: false
+    dummyDataEnable: false
+
+  BA7E007F-761B-4A0F-AFAF-45B032AC19A2:
+    name: England RFU
+    dns: englandrugby.com
+    id: englandrugby
+    enabled: true
+    legacy_project_id: 207
+    legacy_hierarchy_id: 27
+    virtual_asset_in_space: false
+    cleanUp:
+      lambdaDisabled: false
+      localDisabled: false
+    sites:
+      9C3D420A-C04F-464C-BD22-07713E452BBD:
+        surveyors:
+          # surveyor@englandrugby.com:
+          #   readonly: false
+          surveyorreadonly@englandrugby.com:
+            readonly: true
+    dummyDataEnable: false
+
+  8720A63-FCE4-328E-3321-AD3F58797C7F:
+    name: Business Center
+    dns: businesscenter.co.uk
+    id: businesscenter
+    enabled: true
+    legacy_project_id: 214
+    legacy_hierarchy_id: 47
+    virtual_asset_in_space: false
+    cleanUp:
+      lambdaDisabled: false
+      localDisabled: false
+    dummyDataEnable: false
+
+  3333333-3333-3333-3333-333333333333:
+    name: Test Tenant
+    dns: testtenant.com
+    id: testtenant
+    enabled: true
+    legacy_project_id: 214
+    legacy_hierarchy_id: 47
+    cleanUp:
+      lambdaDisabled: false
+      localDisabled: false
+    dummyDataEnable: false
+
+  1111111-1111-1111-1111-111111111111:
+    name: REAMS Tenant
+    dns: reams-elias.co.uk
+    enabled: true
+    legacy_project_id: 214
+    legacy_hierarchy_id: 47
+    id: reams
+    cleanUp:
+      lambdaDisabled: false
+      localDisabled: false
+    dummyDataEnable: false
+
+  90C8BE2E-AB81-45B5-A9DB-A6F967471C1D:
+    name: Atkins
+    dns: atkins.co.uk
+    legacy_project_id: 207
+    legacy_hierarchy_id: 27
+    id: atkins
+    dummyDataEnable: false
+    
+  91139949-B379-4EC7-AD72-45BEB7DBB9B8:
+    name: 20 Fenchurch street
+    dns: 20fcst.co.uk
+    legacy_project_id: 214
+    legacy_hierarchy_id: 47
+    id: 20fcst
+    dummyDataEnable: false
+    
+    
+  93FC987A-9705-495A-BA65-37654374EB4C:
+    name: Royal Hospital Chelsea
+    dns: rhc.co.uk
+    legacy_project_id: 237
+    legacy_hierarchy_id: 47
+    id: rhc
+    dummyDataEnable: false
+    
+  9692179F-A1B5-4045-AA6C-0A3FD1D49DE8:
+    name: Allianz
+    dns: allianz.co.uk
+    legacy_project_id: 180
+    legacy_hierarchy_id: 27
+    id: allianz
+    dummyDataEnable: false
+
+  97000000-0000-0000-0000-00000000000:
+    name: British Airways
+    dns: ba.com
+    legacy_project_id: 214
+    legacy_hierarchy_id: 47
+    id: ba
+    cleanUp:
+      lambdaDisabled: false
+      localDisabled: false
+    dummyDataEnable: true
+
+  97000000-0000-0000-0000-00000000001:
+    name: Airbus
+    dns: airbus.com
+    legacy_project_id: 275
+    legacy_hierarchy_id: 67
+    id: airbus
+    cleanUp:
+      lambdaDisabled: false
+      localDisabled: false
+    dummyDataEnable: false
+
+  admin:
+    name: Admin (THIS IS NOT A TENANT)
+    dns: admin.com
+    id: admin-temp
+    enabled: true
+    cleanUp:
+      lambdaDisabled: true
+      localDisabled: true
+    dummyDataEnable: false
+
+globalUser:
+  dns: 'realestateams.com'
+  
+sync:
+  refresh_time: 60
+
+adalConfig:
+  instance: https://login.microsoftonline.com/
+  cacheLocation: localStorage
+  postLogoutRedirectUri: window.location.origin
+
+cleanUp:
+  lambdaDisabled: false
+  localDisabled: false
+disableCleandown: true
+
+newRelicConfig:
+  licenseKey: 1a2e201c56
+  beacon: bam.eu01.nr-data.net
+  errorBeacon: bam.eu01.nr-data.net
+  localhostAppID: 13884395

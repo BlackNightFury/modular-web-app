@@ -1,0 +1,52 @@
+aws:
+  appsync:
+    graphqlEndpoint: 'https://kdmryn5nzncadfafoanwswjqo4.appsync-api.eu-west-2.amazonaws.com/graphql'
+
+tenants:
+  672FB50-BE2B-405D-9526-CB81427B7B7E:
+    identityPoolId: eu-west-2:ac8b0f28-6a08-4d5a-a93d-ba7d92ef6fea
+    virtual_asset_in_space: true
+  
+  BA7E007F-761B-4A0F-AFAF-45B032AC19A2:
+    identityPoolId: eu-west-2:24691970-05cd-4989-b9ee-2487b64afd4f
+  
+  8720A63-FCE4-328E-3321-AD3F58797C7F:
+    identityPoolId: eu-west-2:374fb683-8f9c-4fa1-91aa-2001d032c047
+  
+  admin:
+    identityPoolId: eu-west-2:c452f793-d71d-4c8c-a99e-b141dde4e8af
+  
+  3333333-3333-3333-3333-333333333333: #test tenant
+    identityPoolId: eu-west-2:ad6e04b4-f974-4155-96eb-ddac2f67b426
+  
+  1111111-1111-1111-1111-111111111111:
+    identityPoolId: eu-west-2:2cbd8090-410b-46b9-a1ed-064135f702fd
+
+  90C8BE2E-AB81-45B5-A9DB-A6F967471C1D: #atkins
+    identityPoolId: eu-west-2:ad94ecbc-04bd-418a-bd06-43ab332a2d60
+  
+  91139949-B379-4EC7-AD72-45BEB7DBB9B8: #20fcst
+    identityPoolId: eu-west-2:fae1a3f4-cb91-4040-8c34-41ca8e74230e
+  
+  9692179F-A1B5-4045-AA6C-0A3FD1D49DE8: #allianz
+    identityPoolId: eu-west-2:e1d9609a-24c7-47a7-bfe8-f1dfca7b878d
+  
+  93FC987A-9705-495A-BA65-37654374EB4C: #rhc
+    identityPoolId: eu-west-2:ce125161-c114-41d8-afdd-499a757d171d
+
+  97000000-0000-0000-0000-00000000001: #airbus
+    identityPoolId: eu-west-2:f85d1882-b0ad-48a3-bd1e-440777b6d580
+      
+globalUser:
+  identityPoolId: eu-west-2:3af21016-702d-4865-a253-7e8967fad1c2
+
+#admin
+
+googleAnalytics:
+  trackingID: UA-139257782-3
+
+adalConfig:
+  redirectUri: 'https://www.eliasam.com/azure'
+
+newRelicConfig:
+  applicationId: 16102852

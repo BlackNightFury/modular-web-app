@@ -1,0 +1,79 @@
+@import '@/assets/styles/mixins.scss';
+
+.topbar {
+  background: $mist-grey;
+  padding: 20px;
+  border-bottom: 1px solid $sky-grey;
+  color: $text;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  @media (max-width: $sm-max-width) {
+    padding: 10px 20px;
+  }
+
+  &.test {
+    margin: 0 -2.3rem;
+    &:first-child {
+      margin-top: -2.3rem;
+    }
+
+    &:last-child {
+      margin-bottom: -2.3rem;
+    }
+
+    @media (max-width: $md-max-width) {
+      margin: 0 -1.53rem;
+    }
+
+    @media (max-width: $sm-max-width) {
+      margin: 0 -0.76rem;
+    }
+  }
+}
+
+.logo {
+  height: 60px;
+  background: $white;
+}
+
+.logoContainer {
+  height: 60px;
+  //display: none;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 40px;
+  }
+  display: flex;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-sm;
+  color: $slate-grey;
+}
+
+.statusIndicator {
+  width: 15px;
+  height: 15px;
+  border: solid 1px $slate-grey;
+  border-radius: 15px;
+  margin-right: 5px;
+
+  &.green {
+    background-color: $good-place-green;
+  }
+
+  &.amber {
+    background-color: $warning-amber;
+  }
+
+  &.red {
+    background-color: $pink;
+  }
+}

@@ -1,0 +1,300 @@
+{
+    "hierarchy": [
+
+        {
+            "type": "Access Control",
+            "children": [
+                {
+                    "children": [
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                },
+                                {
+                                    "name": "Barcode",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "Manufacturer",
+                                    "type": "manufacturer"
+                                },
+                                {
+                                    "name": "Description",
+                                    "type": "string"
+                                }
+                            ],
+                            "type": "Door - Manual Shutter Type (Horizontal Moving)"
+                        },
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                },
+                                {
+                                    "name": "Barcode",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "Manufacturer",
+                                    "type": "manufacturer"
+                                },
+                                {
+                                    "name": "Description",
+                                    "type": "string"
+                                }
+                            ],
+                            "type": "Door - Power Operated - Rapid Roll Type"
+                        },
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                },
+                                {
+                                    "name": "Barcode",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "Manufacturer",
+                                    "type": "manufacturer"
+                                },
+                                {
+                                    "name": "Description",
+                                    "type": "string"
+                                }
+                            ],
+                            "type": "Door - Power Operated - Revolving"
+                        }
+                    ],
+                    "type": "Auto/Manual Doors"
+                },
+                {
+                    "children": [
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                },
+                                {
+                                    "name": "Barcode",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "Manufacturer",
+                                    "type": "manufacturer"
+                                },
+                                {
+                                    "name": "Description",
+                                    "type": "string"
+                                }
+                            ],
+                            "type": "Powered Gates"
+                        },
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                },
+                                {
+                                    "name": "Barcode",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "Manufacturer",
+                                    "type": "manufacturer"
+                                },
+                                {
+                                    "name": "Description",
+                                    "type": "string"
+                                }
+                            ],
+                            "type": "Traffic Barriers (inc vehicle blockers)"
+                        },
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                },
+                                {
+                                    "name": "Barcode",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "Manufacturer",
+                                    "type": "manufacturer"
+                                },
+                                {
+                                    "name": "Description",
+                                    "type": "string"
+                                }
+                            ],
+                            "type": "Traffic Control Systems (Traffic Lights etc)"
+                        }
+                    ],
+                    "type": "Vehicular Control"
+                }
+            ],
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                }
+                            ],
+                            "type": "Chilled Beams"
+                        },
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                }
+                            ],
+                            "type": "Deaerator"
+                        },
+                        {
+                            "facets": [
+                                {
+                                    "name": "Condition",
+                                    "type": "picker",
+                                    "values": [
+                                        "A",
+                                        "B",
+                                        "C"
+                                    ]
+                                },
+                                {
+                                    "name": "Quantity",
+                                    "type": "positiveNumber"
+                                },
+                                {
+                                    "name": "InstallDate",
+                                    "type": "monthYear"
+                                }
+                            ],
+                            "type": "Downflow Unit (Chilled Water)"
+                        }
+                    ],
+                    "type": "Air Conditioning & Cooling"
+                }
+            ],
+            "type": "Air conditioning"
+        }
+    ]
+}

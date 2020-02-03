@@ -1,0 +1,55 @@
+@import '@/assets/styles/mixins.scss';
+
+.input {
+  width: 60px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.closeIcon {
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.message {
+  font-family: $font-family;
+  font-size: $font-size-lg;
+  font-weight: bold;
+}
+
+.description {
+  font-family: $font-family;
+  color: $slate-grey;
+}
+
+.success {
+  color: $green !important;
+  border-color: $green;
+}
+
+.info {
+  color: $link-blue !important;
+  border-color: $link-blue;
+}
+
+.warning {
+  color: $warning-amber !important;
+  border-color: $warning-amber;
+}
+
+.create-form {
+  color: $pink !important;
+  font-size: $font-size-md;
+}
+
+.create-form-error-container {
+  border-radius: 2px !important;
+  border: 1px solid $error-pink !important;
+  background: $leading-pink-faint !important;
+}
+
+.error {
+  color: $error-pink !important;
+  border-color: $error-pink;
+}

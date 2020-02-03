@@ -1,0 +1,69 @@
+@import '@/assets/styles/mixins.scss';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  THEME SETTINGS STYLES */
+
+.settings {
+  &__fixedWidth {
+    max-width: 1420px;
+    margin: 0 auto;
+
+    &:not(.settings__menuTop) {
+      .utils__content {
+        padding-right: 0;
+      }
+
+      div[class^='style__inner'] {
+        margin-right: 0;
+      }
+    }
+
+    &.settings__menuTop {
+      .utils__content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      div[class^='style__inner'] {
+        margin: 0;
+      }
+    }
+  }
+
+  &__squaredBorders {
+    .card {
+      border-radius: 0;
+    }
+  }
+
+  &__menuShadow {
+    .ant-layout-sider {
+      position: relative;
+      z-index: 1; 
+      box-shadow: 4px 0 rgba(68,78,87,.25);
+      border: none;
+    }
+  }
+
+  &__borderLess {
+    .card {
+      border: none;
+    }
+
+    .card-header {
+      padding-top: rem(20);
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .card-footer {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .utils__title {
+      text-transform: uppercase;
+      font-size: rem(16);
+    }
+  }
+}

@@ -1,0 +1,64 @@
+aws:
+  project_region: 'eu-west-2'
+  appsync:
+    region: 'eu-west-2'
+    authenticationType: 'AWS_IAM'
+  ssl_cert: 'arn:aws:acm:us-east-1:136165052809:certificate/db18e933-fe62-49e4-b981-69da58652941'
+  account_id: 136165052809
+
+lambda:
+  prune_automatic: true
+  prune_number: 3
+
+tenants:
+  672FB50-BE2B-405D-9526-CB81427B7B7E:
+    userPoolId: eu-west-2_FdbevO5s5
+    userPoolWebClientId: 4mf453i12tr7u7dn3i4un1ecfo
+    assetImagesS3Bucket: reams-elias-mwa-dev-tenant1-images
+    dummyDataEnable: true
+
+  BA7E007F-761B-4A0F-AFAF-45B032AC19A2:
+    userPoolId: eu-west-2_F4pagqDrM
+    userPoolWebClientId: 3smt4md6qvq8tsd60hqk08onmu
+    assetImagesS3Bucket: reams-elias-mwa-dev-tenant2-images
+    dummyDataEnable: true
+
+  8720A63-FCE4-328E-3321-AD3F58797C7F:
+    userPoolId: eu-west-2_UUvjFGoHe
+    userPoolWebClientId: 1tv63p4h264ds5g9d7gtb1ji2s
+    assetImagesS3Bucket: reams-elias-mwa-dev-tenant3-images
+    dummyDataEnable: true
+
+  3333333-3333-3333-3333-333333333333:
+    userPoolId: eu-west-2_3APJTJ2Q9
+    userPoolWebClientId: elc7ab7as3353hftd1qlpe0al
+    assetImagesS3Bucket: reams-elias-mwa-dev-test-tenant-images
+    dummyDataEnable: true
+
+  1111111-1111-1111-1111-111111111111:
+    userPoolId: eu-west-2_4b5V7RPaQ
+    userPoolWebClientId: me6o4uceeqrl3f2ovagcusitg
+    assetImagesS3Bucket: reams-elias-mwa-dev-reams-images
+    dummyDataEnable: true
+
+globalUser:
+  userPoolId: eu-west-2_XZnYlOuRi
+  userPoolWebClientId: 3293i3j5nf6rc9hudv4kkhmv85
+
+googleAnalytics:
+  trackingID: UA-139257782-2
+
+adalConfig:
+  tenant: 30e5d6d1-d0f8-4f89-b81d-d90240e8d0ba
+  clientId: f1917c7c-ea73-4534-97a0-16fc72e958b8
+
+elasticSearchEndpoint: https://search-reams-elias-mwa-dev-es-kvuebvj5zqemmy2hjk2gvang2e.eu-west-2.es.amazonaws.com
+
+elasticSearchArn: arn:aws:es:eu-west-2:136165052809:domain/reams-elias-mwa-dev-es
+
+logSubscriptionEnabled: true
+
+newRelicConfig:
+  applicationId: 7919149
+
+googleApiKey: AIzaSyAlqdWgvGQ0VvJtAa02HcieEaV-vrNivgM

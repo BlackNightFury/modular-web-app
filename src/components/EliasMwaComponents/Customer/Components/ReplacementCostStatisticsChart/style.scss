@@ -1,0 +1,34 @@
+@import '@/assets/styles/mixins.scss';
+
+.chart {
+  text-align: center;
+  height: 110px;
+  width: 262px;
+  color: $battleship-grey;
+  &:hover {
+    cursor: pointer;
+    color: $slate-grey !important;
+  }
+}
+
+.chartLabel {
+  font-size: $font-size-md;
+}
+
+.chartValue {
+  font-size: $font-size-xxxl;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+}
+
+.marginRight10 {
+  margin-right: 10px;
+}
+
+.noLink {
+  &:hover {
+    cursor: default;
+    color: $battleship-grey !important;
+  }
+}

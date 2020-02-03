@@ -1,0 +1,25 @@
+{
+  "virtualassets": [
+    {
+      "key": "1",
+      "asset_subtype": "Fire extinguishers - water",
+      "install_year": 2011,
+      "condition": "B",
+      "quantity": 15
+    },
+    {
+      "key": "2",
+      "asset_subtype": "Internal Lighting",
+      "install_year": 2001,
+      "condition": "A",
+      "quantity": 36
+    },
+    {
+      "key": "3",
+      "asset_subtype": "Emergency Lighting",
+      "install_year": 2001,
+      "condition": "A",
+      "quantity": 24
+    }
+  ]
+}

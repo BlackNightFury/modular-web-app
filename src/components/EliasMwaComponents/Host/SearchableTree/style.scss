@@ -1,0 +1,45 @@
+.customDropDown {
+  overflow: hidden;
+  font-size: 13px;
+  max-height: 70vh !important;
+  display: flex;
+  flex-direction: column;
+
+  &:global(.ant-select-dropdown-hidden) {
+    display: none;
+  }
+
+  :global(.ant-select-tree
+      li.no-highlight-treeselect-item
+      .ant-select-tree-node-content-wrapper.ant-select-tree-node-selected) {
+    background-color: transparent !important;
+  }
+
+  :global(.ant-select-tree-node-content-wrapper) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  :global(.ant-select-tree-switcher) {
+    vertical-align: top !important;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+
+    :global(.ant-select-dropdown-search) {
+      position: relative;
+    }
+
+    :global(.ant-select-tree) {
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+}
+
+:global(.ant-calendar-picker-container) {
+  z-index: 10500 !important;
+}

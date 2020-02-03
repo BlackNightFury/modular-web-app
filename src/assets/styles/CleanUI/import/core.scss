@@ -1,0 +1,211 @@
+@import '@/assets/styles/mixins.scss';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  CORE MODULE STYLES */
+
+html {
+  font-size: 13px;
+  overflow-y: scroll;
+  @media (max-width: $sm-max-width) {
+    font-size: 12px;
+  }
+}
+
+body {
+  font-family: $base__font-family;
+  color: $text-darken-more;
+  background: $gray-lighten-more;
+  line-height: 1.7;
+  @media (max-width: $sm-max-width) {
+    font-size: 12px;
+  }
+}
+
+svg {
+  vertical-align: baseline;
+  overflow: auto;
+}
+
+a {
+  text-decoration: none;
+  color: $text;
+  @include transition-color();
+  &:hover,
+  &:active,
+  &:focus {
+    color: $blue;
+    text-decoration: none;
+  }
+}
+
+input {
+  outline: none !important;
+  font-family: $base__font-family;
+  color: $text-darken-more;
+}
+
+button,
+input {
+  box-shadow: none !important;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+textarea {
+  appearance: none !important;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 50px white inset !important;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+// code element
+code {
+  color: $text;
+  background: $gray-lighten-more;
+  display: inline-block;
+  padding: rem(2) rem(5);
+  border-radius: 3px;
+}
+
+// pre element
+pre {
+  color: $text;
+  padding: rem(20);
+  border-radius: 3px;
+  border: 1px solid $gray-border;
+  background: $gray-lighten-more;
+}
+
+// ant design font overrides
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  CORE COMPONENTS & UTILITIES */
+
+.utils {
+  &__visibilityHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+  }
+
+  // main container
+  &__content {
+    padding: rem(30);
+    max-width: rem(1560);
+    margin: 0 auto;
+
+    @media (max-width: $md-max-width) {
+      padding: rem(30) rem(20);
+      overflow-x: hidden;
+    }
+
+    @media (max-width: $sm-max-width) {
+      padding: rem(30) rem(10);
+      overflow-x: hidden;
+    }
+  }
+
+  &__title {
+    font-size: rem(17);
+    color: $black;
+  }
+
+  &__titleDescription {
+    color: $text-lighten;
+  }
+
+  // scrollable block
+  &__scrollable {
+    overflow: auto;
+  }
+
+  // example block
+  &__example {
+    padding: rem(25);
+    border: 1px solid $gray-border;
+    &:before {
+      content: 'EXAMPLE';
+      display: block;
+      margin-bottom: rem(15);
+      color: $text;
+    }
+  }
+
+  // links
+  &__link {
+    &--underlined {
+      border-bottom: 1px solid rgba($black-lighten-more, 0.25);
+      &:hover {
+        border-bottom-color: rgba($blue, 0.2);
+      }
+    }
+    &--blue {
+      color: $blue;
+      &:hover {
+        color: $blue-darken;
+      }
+      &.link-underlined {
+        border-bottom: 1px solid rgba($blue, 0.25);
+        &:hover {
+          border-bottom-color: rgba($blue, 0.2);
+        }
+      }
+    }
+  }
+
+  // icons block
+  &__iconsBlock {
+    padding: 0 0 rem(30);
+    text-align: center;
+    p {
+      height: rem(30);
+    }
+    li {
+      text-align: center;
+      display: inline-block;
+      width: rem(40);
+      height: rem(40);
+      line-height: rem(40);
+      font-size: rem(36);
+      padding: rem(10) rem(30);
+      box-sizing: content-box;
+      border-radius: 3px;
+      background: $gray-lighten;
+      margin: rem(10);
+      &:hover {
+        background: $black-lighten;
+        color: $white;
+      }
+    }
+    .tooltip {
+      font-size: rem(18);
+    }
+  }
+
+  &__scrollTable {
+    white-space: nowrap !important;
+    .ant-table-body {
+      overflow-x: auto !important;
+    }
+  }
+}

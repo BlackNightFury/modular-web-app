@@ -1,0 +1,17 @@
+{
+  "name": "jira-analysis",
+  "version": "1.0.0",
+  "description": "This uses the JIRA search API to pull all tickets from the EMW project And allows them to be filtered by epic, into a spreadsheet",
+  "main": "get-jira-issues.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "csv-writer": "^1.5.0",
+    "fast-csv": "^3.4.0",
+    "jira-search": "^0.1.2",
+    "lodash": "^4.17.15"
+  }
+}

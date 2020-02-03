@@ -1,0 +1,36 @@
+// Import mixins
+@import '@/assets/styles/mixins.scss';
+
+.ant-collapse {
+  .ant-collapse-item {
+    .ant-collapse-header {
+      .ant-collapse-arrow {
+        left: 20px;
+        top: calc(50% + 1px);
+      }
+
+      .collapse-header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $font-size-md;
+        padding-right: 20px;
+
+        span {
+          color: $battleship-grey;
+          font-weight: normal;
+        }
+
+        span:first-child {
+          font-weight: bold;
+          color: $slate-grey;
+
+          span {
+            color: $battleship-grey;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}

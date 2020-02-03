@@ -1,0 +1,20 @@
+{
+  "name": "db-migrations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "db-migrate": "^0.11.6",
+    "db-migrate-base": "^2.0.0",
+    "moment": "^2.24.0",
+    "yargs": "^13.3.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.5"
+  }
+}

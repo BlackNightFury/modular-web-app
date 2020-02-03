@@ -1,0 +1,824 @@
+type User {
+	id: String!
+	email: String
+	name: String
+	username: String
+	legacy: String
+}
+
+interface EliasObject {
+	id: ID!
+	createdAt: String
+	createdBy: String
+	currentVersion: String
+	createdUser: User
+}
+
+enum Status {
+	NOT_STARTED
+	IN_PROGRESS
+	DONE
+}
+
+enum SpaceStatus {
+	NOT_STARTED
+	INACCESSIBLE
+	IN_PROGRESS
+	DONE
+}
+
+enum ReportType {
+	ASSET_MANAGEMENT_CAFM_EXPORT
+}
+
+enum ReportAssetClass {
+  ALL
+  VIRTUAL
+  CORE
+}
+
+enum ReportFormat {
+  CSV
+}
+
+input UserInput {
+	email: String!
+	name: String
+	username: String
+	legacy: String
+}
+
+type Site implements EliasObject {
+	id: ID!
+	createdAt: String
+	createdBy: String
+	createdUser: User
+	currentVersion: String
+	name: String!
+	postcode: String!
+	code: String
+}
+
+input FilterSiteInput {
+	tenantId: String
+	id: ID
+	createdAt: String
+	createdBy: String
+	currentVersion: String
+	name: String
+	postcode: String
+}
+
+input FilterMigrationInput {
+	tenantId: String
+	id: ID
+}
+
+input FilterSpaceInput {
+	tenantId: String
+	id: ID
+	createdAt: String
+	createdBy: String
+	currentVersion: String
+	facilityId: ID
+	floorId: ID
+	name: String
+	localName: String
+	department: String
+	type: String
+	status: String
+	availableDate: String
+}
+
+input FilterProjectInput {
+	tenantId: String
+	id: ID
+	createdAt: String
+	createdBy: String
+	currentVersion: String
+	sites: String
+	name: String
+	rag: String
+	preSurveyQuestionnaire: String
+	readonly: Boolean
+}
+
+input FilterFacilityInput {
+	tenantId: String
+	id: ID
+	createdAt: String
+	createdBy: String
+	currentVersion: String
+	siteId: String
+	name: String
+	postcode: String
+	rag: String
+}
+
+input FilterFloorInput {
+	tenantId: String
+	id: ID
+	createdAt: String
+	createdBy: String
+	currentVersion: String
+	name: String
+	facilityId: ID
+	status: String
+}
+
+input FilterFormResponseInput {
+	tenantId: String
+	id: ID
+	createdAt: String
+	createdBy: String
+	currentVersion: String
+	formId: String
+}
+
+input FilterAssetInput {
+	tenantId: String
+	id: ID
+	createdAt: String
+	createdBy: String
+	currentVersion: String
+	facilityId: ID
+	floorId: ID
+	spaceId: ID
+	assetType: AssetTypeInput
+	projectId: ID
+	siteId: ID
+}
+
+input CreateSiteInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	id: ID!
+	name: String!
+	postcode: String!
+	code: String!
+}
+
+input UpdateSiteInput {
+	tenantId: String!
+	id: ID!
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	version: String!
+	name: String!
+	postcode: String!
+	code: String!
+}
+
+input DeleteSiteInput {
+	version: String!
+	tenantId: String!
+	id: ID!
+}
+
+interface EliasInput {
+	createdAtClient: String!
+	createdBy: String!
+	tenantId: String!
+	id: ID!
+}
+
+type Project implements EliasObject {
+	id: ID!
+	createdAt: String
+	createdBy: String
+	createdUser: User
+	currentVersion: String
+	sites: [String]!
+	name: String!
+	rag: String!
+	preSurveyQuestionnaire: String
+	docs: [Doc]
+	readonly: Boolean
+	code: String
+}
+
+input CreateProjectInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	id: ID!
+	sites: [String]!
+	name: String!
+	rag: String!
+	preSurveyQuestionnaire: String
+	docs: [DocInput]
+	readonly: Boolean
+	code: String!
+}
+
+input UpdateProjectInput {
+	tenantId: String!
+	id: ID!
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	version: String!
+	sites: [String]!
+	name: String!
+	rag: String!
+	preSurveyQuestionnaire: String
+	docs: [DocInput]
+	readonly: Boolean
+	code: String!
+}
+
+#TODO - why doesn't this include createdAtClient & createdBy
+input DeleteProjectInput {
+	version: String!
+	tenantId: String!
+	id: ID!
+	force: Boolean
+}
+
+type Migration implements EliasObject {
+	id: ID!
+	createdAt: String
+	createdAtClient: String
+	createdBy: String
+	currentVersion: String
+	createdUser: User
+}
+
+input CreateMigrationInput {
+	id: ID!
+	createdAtClient: String!
+	createdBy: String!
+	tenantId: String!
+}
+
+input DeleteMigrationInput {
+	id: ID!
+	name: ID!
+	tenantId: String!
+	force: Boolean
+}
+
+type Doc {
+	text: String!
+	id: String!
+}
+
+input DocInput {
+	text: String!
+	id: String!
+}
+
+type Facility implements EliasObject {
+	id: ID!
+	createdAt: String
+	createdBy: String
+	createdUser: User
+	currentVersion: String
+	siteId: String!
+	project: String
+	name: String!
+	rag: String!
+	status: Status!
+	docs: [Doc]
+	facets: AWSJSON
+	notes: AWSJSON
+	images: [AssetImage]
+	tenantId: String!
+	code: String
+}
+
+input CreateFacilityInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	id: ID!
+	siteId: String!
+	project: String
+	name: String!
+	rag: String!
+	status: Status!
+	docs: [DocInput]
+  	facets: AWSJSON!
+	notes: AWSJSON
+	images: [AssetImageInput]
+	code: String!
+}
+
+#TODO - why doesn't this include createdAtClient & createdBy
+input DeleteFacilityInput {
+	version: String!
+	tenantId: String!
+	id: ID!
+	force: Boolean
+}
+
+input UpdateFacilityInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	id: ID!
+	version: String!
+	siteId: String!
+	project: String
+	name: String!
+	rag: String!
+	status: Status!
+	docs: [DocInput]
+  	facets: AWSJSON!
+	notes: AWSJSON
+	images: [AssetImageInput]
+	code: String!
+}
+
+type Floor implements EliasObject {
+	id: ID!
+	createdAt: String
+	createdBy: String
+	createdUser: User
+	currentVersion: String
+	facilityId: ID!
+	name: String!
+	status: Status!
+	notes: AWSJSON
+	completedAt: String
+	completedBy: String
+}
+
+type Space implements EliasObject  {
+	id: ID!
+	createdAt: String
+	createdBy: String
+	createdUser: User
+	currentVersion: String
+	facilityId: ID!
+	floorId: ID!
+	name: String!
+	localName: String
+	department: String
+	type: String!
+	status: SpaceStatus!
+	availableDate: String
+	notes: AWSJSON
+	completedAt: String
+	completedBy: String
+}
+
+type FormResponse implements EliasObject {
+	id: ID!
+	createdAt: String
+	createdBy: String
+	createdUser: User
+	currentVersion: String
+	formId: String!
+	response: AWSJSON!
+}
+
+input CreateFloorInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	id: ID!
+	name: String!
+	status: Status!
+	facilityId: ID!
+	notes: AWSJSON
+}
+
+input UpdateFloorInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	version: String!
+	id: ID!
+	name: String!
+	status: Status!
+	facilityId: ID!
+	notes: AWSJSON
+}
+
+#TODO - why doesn't this include createdAtClient & createdBy
+#Also - can we remove facility id now we use ES?
+input DeleteFloorInput {
+	version: String!
+	tenantId: String!
+	id: ID!
+	facilityId: ID!
+	force: Boolean
+}
+
+input CreateSpaceInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	facilityId: ID!
+	floorId: ID!
+	id: ID!
+	name: String!
+	localName: String
+	department: String
+	type: String!
+	status: SpaceStatus!
+	availableDate: String
+	notes: AWSJSON
+}
+
+input UpdateSpaceInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	version: String!
+	facilityId: ID!
+	floorId: ID!
+	id: ID!
+	name: String!
+	localName: String
+	department: String
+	type: String!
+	status: SpaceStatus!
+	availableDate: String
+	notes: AWSJSON
+}
+
+#TODO - why doesn't this include createdAtClient & createdBy
+#Also - can we remove facility and floor id now we use ES?
+input DeleteSpaceInput {
+	version: String!
+	tenantId: String!
+	id: ID!
+	facilityId: ID!
+	floorId: ID!
+	force: Boolean
+}
+
+input CreateFormResponseInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	id: ID!
+  	formId: String!
+  	response: AWSJSON!
+}
+
+input UpdateFormResponseInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	version: String!
+	id: ID!
+	formId: String!
+	response: AWSJSON!
+}
+
+#TODO - why doesn't this include createdAtClient & createdBy
+input DeleteFormResponseInput {
+	version: String!,
+	tenantId: String!
+	id: ID!
+	force: Boolean
+}
+
+type AssetImage {
+	dataUri: String
+	picture: S3Object
+}
+
+type AssetType {
+	description: String!,
+	legacyId: Int!,
+	tree: [String],
+	virtual: Boolean!,
+	facets: AWSJSON
+}
+
+type AssetSpons {
+	eol: String,
+	lifecycle: Float,
+	replacementCost: Float,
+	totalReplacementCost: Float
+}
+
+input AssetImageInput {
+	dataUri: String
+	picture: S3ObjectInput
+}
+
+input AssetTypeInput {
+	description: String!,
+	legacyId: Int!,
+	tree: [String],
+	virtual: Boolean!
+	facets: AWSJSON
+}
+
+type Asset implements EliasObject {
+	id: ID!
+	createdAt: String
+	createdBy: String
+	createdUser: User
+	currentVersion: String
+	facilityId: ID!
+	floorId: ID!
+	spaceId: ID
+	assetType: AssetType!
+	spons: AssetSpons
+	images: [AssetImage]
+	facets: AWSJSON!
+	notes: AWSJSON
+	projectId: ID
+	siteId: ID
+}
+
+input CreateAssetInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	id: ID!
+	facilityId: ID!
+	floorId: ID!
+	spaceId: ID
+	assetType: AssetTypeInput!
+	facets: AWSJSON!
+	notes: AWSJSON
+	images: [AssetImageInput]
+	projectId: ID
+	siteId: ID
+}
+
+input UpdateAssetInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	version: String!
+	id: ID!
+	facilityId: ID!
+	floorId: ID!
+	spaceId: ID
+	assetType: AssetTypeInput!
+	facets: AWSJSON!
+	notes: AWSJSON
+	images: [AssetImageInput]
+	projectId: ID
+	siteId: ID
+}
+
+#TODO - why doesn't this include createdAtClient & createdBy
+#Also - can we remove facility, floor & space id now we use ES?
+input DeleteAssetInput {
+	version: String!
+	tenantId: String!
+	id: ID!
+	facilityId: ID!
+	floorId: ID!
+	spaceId: String
+	force: Boolean
+}
+
+type Manufacturer implements EliasObject {
+	id: ID!
+	createdAt: String
+	createdBy: String!
+	createdUser: User
+	currentVersion: String
+	name: String!
+}
+
+input CreateManufacturerInput {
+	createdAtClient: String!
+	createdBy: String!
+	createdUser: UserInput
+	tenantId: String!
+	id: ID!
+	name: String!
+}
+
+type ModelSiteConnection {
+	items: [Site]
+	nextToken: String
+}
+
+type ModelAssetConnection {
+	items: [Asset]
+	nextToken: String
+}
+
+type ModelProjectConnection {
+	items: [Project]
+	nextToken: String
+}
+
+type ModelMigrationConnection {
+	items: [Migration]
+	nextToken: String
+}
+
+type ModelFacilityConnection {
+	items: [Facility]
+	nextToken: String
+}
+
+type ModelFloorConnection {
+	items: [Floor]
+	nextToken: String
+}
+
+type ModelSpaceConnection {
+	items: [Space]
+	nextToken: String
+}
+
+type ModelFormResponseConnection {
+	items: [FormResponse]
+	nextToken: String
+}
+
+input ModelAssetFilterInput {
+	uniqueId: ModelStringFilterInput
+	tenantId: ModelStringFilterInput
+	and: [ModelAssetFilterInput]
+	or: [ModelAssetFilterInput]
+	not: ModelAssetFilterInput
+}
+
+input ModelBooleanFilterInput {
+	ne: Boolean
+	eq: Boolean
+}
+
+input ModelFloatFilterInput {
+	ne: Float
+	eq: Float
+	le: Float
+	lt: Float
+	ge: Float
+	gt: Float
+	contains: Float
+	notContains: Float
+	between: [Float]
+}
+
+input ModelIDFilterInput {
+	ne: ID
+	eq: ID
+	le: ID
+	lt: ID
+	ge: ID
+	gt: ID
+	contains: ID
+	notContains: ID
+	between: [ID]
+	beginsWith: ID
+}
+
+input ModelIntFilterInput {
+	ne: Int
+	eq: Int
+	le: Int
+	lt: Int
+	ge: Int
+	gt: Int
+	contains: Int
+	notContains: Int
+	between: [Int]
+}
+
+enum ModelSortDirection {
+	ASC
+	DESC
+}
+
+input ModelStringFilterInput {
+	ne: String
+	eq: String
+	le: String
+	lt: String
+	ge: String
+	gt: String
+	contains: String
+	notContains: String
+	between: [String]
+	beginsWith: String
+}
+
+input ProjectInput {
+	tenantId: String!
+	projectId: Int!
+}
+
+input ReportDetailsInput {
+  id: String!
+	type: ReportType!
+	name: String!
+  format: ReportFormat!
+}
+
+input ReportFiltersAssetTypeInput {
+  trees: [[String]]
+  class: ReportAssetClass
+}
+
+input ReportFiltersInput {
+  tenantId: String
+	assetType: ReportFiltersAssetTypeInput
+}
+
+type ReportDetails {
+  id: String!
+	type: ReportType!
+	name: String!
+  format: ReportFormat!
+}
+
+type Report {
+  reportDetails: ReportDetails
+	report: S3Object
+}
+
+type Mutation {
+	createAsset(input: CreateAssetInput!): Asset
+	createFacility(input: CreateFacilityInput!): Facility
+	createFloor(input: CreateFloorInput!): Floor
+	createProject(input: CreateProjectInput!): Project
+	createSpace(input: CreateSpaceInput!): Space
+	createManufacturer(input: CreateManufacturerInput!): Manufacturer
+	updateAsset(input: UpdateAssetInput!): Asset
+	updateFacility(input: UpdateFacilityInput!): Facility
+	updateFloor(input: UpdateFloorInput!): Floor
+	updateProject(input: UpdateProjectInput!): Project
+	updateSpace(input: UpdateSpaceInput!): Space
+	deleteAsset(input: DeleteAssetInput!): Asset
+	deleteFacility(input: DeleteFacilityInput!): Facility
+	deleteFloor(input: DeleteFloorInput!): Floor
+	deleteProject(input: DeleteProjectInput!): Project
+	deleteSpace(input: DeleteSpaceInput!): Space
+	createFormResponse(input: CreateFormResponseInput!): FormResponse
+	updateFormResponse(input: UpdateFormResponseInput!): FormResponse
+	deleteFormResponse(input: DeleteFormResponseInput!): FormResponse
+	createSite(input: CreateSiteInput!): Site
+	updateSite(input: UpdateSiteInput!): Site
+	deleteSite(input: DeleteSiteInput!): Site
+	createMigration(input: CreateMigrationInput!): Migration
+	deleteMigration(input: DeleteMigrationInput!): Migration
+  generateReport(filters: ReportFiltersInput, reportDetails: ReportDetailsInput): Report
+}
+
+type Query {
+	getHierarchy(projects: [ProjectInput]!): AWSJSON
+	getManufacturers(tenantId: String): AWSJSON
+	getSpaceTypes(projects: [Int]!) : AWSJSON
+	getAsset(id: ID!): Asset
+	listSites(filters: FilterSiteInput, fields: [String], includeDeleted: Boolean): ModelSiteConnection
+	listProjects(filters: FilterProjectInput, fields: [String], includeDeleted: Boolean): ModelProjectConnection
+	listFacilities(filters: FilterFacilityInput, fields: [String], includeDeleted: Boolean): ModelFacilityConnection
+	listFloors(filters: FilterFloorInput, fields: [String], includeDeleted: Boolean): ModelFloorConnection
+	listSpaces(filters: FilterSpaceInput, fields: [String], includeDeleted: Boolean): ModelSpaceConnection
+	listAssets(filters: FilterAssetInput, fields: [String], includeDeleted: Boolean): ModelAssetConnection
+	listFormResponses(filters: FilterFormResponseInput, fields: [String], includeDeleted: Boolean): ModelFormResponseConnection
+	listMigrations(filters: FilterMigrationInput): ModelMigrationConnection
+}
+
+type S3Object {
+	bucket: String
+	region: String
+	key: String
+}
+
+input S3ObjectInput {
+	bucket: String
+	region: String
+	key: String
+}
+
+type Subscription {
+	onCreateAsset(facilityId: String!): Asset
+		@aws_subscribe(mutations: ["createAsset"])
+	onUpdateAsset(facilityId: String!): Asset
+		@aws_subscribe(mutations: ["updateAsset"])
+	onDeleteAsset(facilityId: String!): Asset
+		@aws_subscribe(mutations: ["deleteAsset"])
+	onCreateFloor(facilityId: String!): Floor
+		@aws_subscribe(mutations: ["createFloor"])
+	onUpdateFloor(facilityId: String!): Floor
+		@aws_subscribe(mutations: ["updateFloor"])
+	onDeleteFloor(facilityId: String!): Floor
+		@aws_subscribe(mutations: ["deleteFloor"])
+	onCreateSpace(facilityId: String!): Space
+		@aws_subscribe(mutations: ["createSpace"])
+	onUpdateSpace(facilityId: String!): Space
+		@aws_subscribe(mutations: ["updateSpace"])
+	onDeleteSpace(facilityId: String!): Space
+		@aws_subscribe(mutations: ["deleteSpace"])
+}

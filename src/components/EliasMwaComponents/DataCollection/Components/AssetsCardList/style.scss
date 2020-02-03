@@ -1,0 +1,117 @@
+@import '@/assets/styles/mixins.scss';
+@import '@/assets/styles/style.scss';
+
+.descriptionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  height: 100%;
+}
+
+.highlightedBackground {
+  background: $alternating-sage;
+}
+
+.infoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-top: 10px;
+}
+
+.typeContainer {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardInfoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex: 1;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  align-self: flex-end;
+  @media only screen and (max-device-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.vImage {
+  width: 150px;
+  float: right;
+  @media only screen and (max-device-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.menuContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  max-height: 80%;
+  overflow: auto;
+  width: 50%;
+}
+
+.input {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.editButton {
+  margin: 10px 0;
+  float: right;
+}
+
+.vImageContainer {
+  width: 100%;
+  color: $dark-grey;
+  font-family: $font-family;
+  span {
+    display: block;
+  }
+  .qtyIncreaserContainer span {
+    display: inline;
+  }
+}
+
+.assetClassIcon {
+  margin-right: 5px;
+}
+
+.cardDetails {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  color: $dark-grey;
+  font-family: $font-family;
+}
+
+.vCardInfoContainer {
+  flex-wrap: wrap;
+  flex: 1;
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+.vActionButtons {
+  flex-direction: column-reverse;
+  display: flex;
+}

@@ -1,0 +1,214 @@
+[
+  {
+    "legacy_id": 10724,
+    "type": "Access",
+    "types": [
+      {
+        "legacy_id": 16664,
+        "subtypes": [
+          {
+            "facets": [
+              {
+                "AssetColumnMappingId": 17,
+                "AssetColumnTypeId": 1,
+                "LookUpTypeName": "condition_lu",
+                "LookupTypeId": 13,
+                "id": 227211,
+                "question_id": 3,
+                "text": "Condition",
+                "type": "ComboBox",
+                "order": 1,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 8,
+                "AssetColumnTypeId": 1,
+                "id": 227212,
+                "question_id": 4,
+                "text": "Quantity",
+                "type": "TextBox",
+                "order": 12,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 9,
+                "AssetColumnTypeId": 3,
+                "id": 227213,
+                "question_id": 7,
+                "text": "Install Date",
+                "type": "ComboBoxYear",
+                "order": 13,
+                "group": "information"
+              }
+            ],
+            "legacy_id": 40452,
+            "type": "Card Readers"
+          },
+          {
+            "facets": [
+              {
+                "AssetColumnMappingId": 17,
+                "AssetColumnTypeId": 1,
+                "LookUpTypeName": "condition_lu",
+                "LookupTypeId": 13,
+                "id": 227214,
+                "question_id": 3,
+                "text": "Condition",
+                "type": "ComboBox",
+                "order": 14,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 8,
+                "AssetColumnTypeId": 1,
+                "id": 227215,
+                "question_id": 4,
+                "text": "Quantity",
+                "type": "TextBox",
+                "order": 15,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 9,
+                "AssetColumnTypeId": 3,
+                "id": 227216,
+                "question_id": 7,
+                "text": "Install Date",
+                "type": "ComboBoxYear",
+                "order": 16,
+                "group": "information"
+              }
+            ],
+            "legacy_id": 40453,
+            "type": "Entry Pads"
+          }
+        ],
+        "type": "Access Eq"
+      },
+      {
+        "legacy_id": 16665,
+        "subtypes": [
+          {
+            "facets": [
+              {
+                "AssetColumnMappingId": 17,
+                "AssetColumnTypeId": 1,
+                "LookUpTypeName": "condition_lu",
+                "LookupTypeId": 13,
+                "id": 227217,
+                "question_id": 3,
+                "text": "Condition",
+                "type": "ComboBox",
+                "order": 17,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 8,
+                "AssetColumnTypeId": 1,
+                "id": 227218,
+                "question_id": 4,
+                "text": "Quantity",
+                "type": "TextBox",
+                "order": 19,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 9,
+                "AssetColumnTypeId": 3,
+                "id": 227219,
+                "question_id": 7,
+                "text": "Install Date",
+                "type": "ComboBoxYear",
+                "order": 21,
+                "group": "information"
+              }
+            ],
+            "legacy_id": 40454,
+            "type": "Panic Alarm"
+          },
+          {
+            "facets": [
+              {
+                "AssetColumnMappingId": 17,
+                "AssetColumnTypeId": 1,
+                "LookUpTypeName": "condition_lu",
+                "LookupTypeId": 13,
+                "id": 227220,
+                "question_id": 3,
+                "text": "Condition",
+                "type": "ComboBox",
+                "order": 1,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 8,
+                "AssetColumnTypeId": 1,
+                "id": 227221,
+                "question_id": 4,
+                "text": "Quantity",
+                "type": "TextBox",
+                "order": 14,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 9,
+                "AssetColumnTypeId": 3,
+                "id": 227222,
+                "question_id": 7,
+                "text": "Install Date",
+                "type": "ComboBoxYear",
+                "order": 13,
+                "group": "information"
+              }
+            ],
+            "legacy_id": 40455,
+            "type": "Sewage Alarm"
+          }
+        ],
+        "type": "Alarm"
+      },
+      {
+        "legacy_id": 16666,
+        "subtypes": [
+          {
+            "facets": [
+              {
+                "AssetColumnMappingId": 7,
+                "AssetColumnTypeId": 2,
+                "id": 227631,
+                "question_id": 2,
+                "text": "Local Asset Description",
+                "type": "TextBox",
+                "order": 1,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 17,
+                "AssetColumnTypeId": 1,
+                "LookUpTypeName": "condition_lu",
+                "LookupTypeId": 13,
+                "id": 228870,
+                "question_id": 3,
+                "text": "Condition",
+                "type": "ComboBox",
+                "order": 12,
+                "group": "information"
+              },
+              {
+                "AssetColumnMappingId": 8,
+                "id": 228871,
+                "question_id": 4,
+                "text": "Quantity",
+                "order": 13,
+                "group": "Others"
+              }
+            ],
+            "legacy_id": 40456,
+            "type": "Amplifier"
+          }
+        ],
+        "type": "Amplifier"
+      }
+    ]
+  }
+]

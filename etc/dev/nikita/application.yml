@@ -1,0 +1,23 @@
+aws:
+  appsync:
+    graphqlEndpoint: 'https://7xxkt3aii5cvbnhary7j5rh4wa.appsync-api.eu-west-2.amazonaws.com/graphql'
+
+tenants:
+  672FB50-BE2B-405D-9526-CB81427B7B7E:
+    identityPoolId: eu-west-2:98ae9a8e-386b-421a-9f04-7e6cda0f31d2
+  BA7E007F-761B-4A0F-AFAF-45B032AC19A2:
+    identityPoolId: eu-west-2:a78e6d1e-fd59-496d-a55d-6fc8836d28f2
+  8720A63-FCE4-328E-3321-AD3F58797C7F:
+    identityPoolId: eu-west-2:1f987c6b-0b7e-4bb8-940b-68de90d94e9b
+  3333333-3333-3333-3333-333333333333:
+    identityPoolId: eu-west-2:94acd57c-d904-4cdd-b0b9-05b6b3c8b75b
+  admin:
+    identityPoolId: eu-west-2:23636323-f99a-4f88-aab9-79b44da60095
+  1111111-1111-1111-1111-111111111111:
+    identityPoolId: eu-west-2:f8e29258-6c5a-482a-b2cc-ddcb4c8783af
+
+globalUser:
+    identityPoolId: eu-west-2:9eac7d6b-e0e3-457b-af41-fe94fe94e05d
+
+adalConfig:
+  redirectUri: 'https://nikita.dev-aws.reams-elias.co.uk/azure'

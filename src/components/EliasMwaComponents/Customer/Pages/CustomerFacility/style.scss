@@ -1,0 +1,18 @@
+@import '../../../DataCollection/Pages/CommonPage/style.scss';
+
+.facilitiesContainer {
+  display: flex;
+  flex-direction: column;
+  margin: -16px;
+}
+
+.sortContainer {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.listingLink {
+  display: inline;
+  text-decoration: underline !important;
+  color: $link-blue !important;
+}

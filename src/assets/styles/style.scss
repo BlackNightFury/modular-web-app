@@ -1,0 +1,135 @@
+a {
+  display: block;
+}
+
+a.underline {
+  text-decoration: underline;
+}
+
+.showPreSurvey {
+  display: inline;
+  text-decoration: underline;
+  color: $link-blue;
+}
+
+.fontSize13 {
+  font-size: 13px;
+}
+
+.fontSize14 {
+  font-size: 14px;
+}
+
+:global(.ant-tooltip-placement-topLeft) {
+  padding-top: 6px;
+  padding-bottom: 2px;
+
+  :global(.ant-tooltip-inner) {
+    background-color: $highlight-blue;
+    color: $slate-grey;
+    border: solid 1px $slate-grey;
+    z-index: 2;
+  }
+
+  :global(.ant-tooltip-arrow) {
+    border-top-color: transparent !important;
+    z-index: 1;
+  }
+
+  :global(.ant-tooltip-arrow:before),
+  :global(.ant-tooltip-arrow:after) {
+    content: '';
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+  }
+
+  :global(.ant-tooltip-arrow:before) {
+    border-top: 5px solid $slate-grey;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+  }
+
+  :global(.ant-tooltip-arrow:after) {
+    border-top: 5px solid $highlight-blue;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+    margin-top: -2px;
+    z-index: 1;
+  }
+}
+
+.analyticsCard {
+  background: #fff;
+  padding: 15px;
+}
+
+.drawerHeader {
+  font-size: $font-size-md;
+  color: $dark-grey;
+  margin-bottom: 20px;
+}
+
+.primary-btn {
+  background: $pink;
+  color: white;
+  font-size: 16px;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 6px;
+  &:hover {
+    background: white;
+    color: $pink;
+    border-color: $pink;
+  }
+}
+
+.primary-outline-btn {
+  color: $pink;
+  border-color: $pink;
+}
+
+.tertiary-btn {
+  padding: 0 10px;
+  color: $slate-grey;
+  border-color: $battleship-grey;
+}
+
+.nameStyle {
+  display: flex;
+  align-items: center;
+
+  a {
+    text-decoration: underline !important;
+    color: $link-blue !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  a:hover {
+    color: $blue-darken !important;
+  }
+}
+
+.detailLinkMargin {
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+input::-webkit-input-placeholder { /* Edge */
+  color: $sky-grey !important;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $sky-grey !important;
+}
+
+input::placeholder {
+  color: $sky-grey !important;
+}

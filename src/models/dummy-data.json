@@ -1,0 +1,980 @@
+{
+  "tenantId": "672FB50-BE2B-405D-9526-CB81427B7B7E",
+  "spaceTypes": "{\"173\": [\"Accommodation\"]}",
+  "listEliasInfo": {
+    "listProjects": {
+      "items": [
+        {
+          "id": "34B40568B",
+          "createdAt": null,
+          "currentVersion": null,
+          "sites": ["D29295DDB"],
+          "name": "Edge hill university",
+          "docs": [{ "id": "UATProjectDocument", "text": "Project docs" }],
+          "preSurveyQuestionnaire": "basic-pre-survey",
+          "readonly": false,
+          "rag": "A",
+          "code": "103245",
+          "__typename": "Project"
+        }
+      ],
+      "nextToken": null,
+      "__typename": "ModelProjectConnection"
+    },
+    "listSites": {
+      "items": [
+        {
+          "id": "D29295DDB",
+          "createdAt": null,
+          "currentVersion": null,
+          "name": "Site",
+          "code": "103246",
+          "postcode": "TEST POST CODE"
+        }
+      ]
+    },
+    "listFacilities": {
+      "items": [
+        {
+          "id": "AAEGCQ8LD",
+          "createdAt": null,
+          "currentVersion": null,
+          "siteId": "D29295DDB",
+          "name": "Sports Centre",
+          "rag": "A",
+          "code": "103247",
+          "docs": [
+            { "id": "UATPAsbestosRegister", "text": "Asbestos register" },
+            { "id": "UATPFacilityNotes", "text": "Facility notes" },
+            { "id": "UATPFacilityRiskAssessment", "text": "Facility risk assesment" }
+          ],
+          "facets": "{\"contact-name\":\"Test Contact\",\"facility-gia\":\"10000\",\"build-date\":\"2019-09-26T14:24:00.851Z\",\"occupancy-normal\":\"1200\",\"facility-type\":\"Assembly and recreation building\",\"postcode\":\"CF63 2AW\",\"location\":{\"lon\":\"-71.34\",\"lat\":\"-45.7\"}}",
+          "notes": "{\"contact-email\":\"Test Contact Email\",\"facility-overview\":\"Test Overview\",\"address\":\"Test Address\",\"contact-job-title\":\"Test Contact Job Title\",\"contact-organization\":\"Test Contact Organization\",\"facility-use\":\"Test Use\",\"contact-telephone\":\"Test Contact Telephone\",\"contact-mobile\":\"Test Contact Mobile\"}",
+          "tenantId": "672FB50-BE2B-405D-9526-CB81427B7B7E",
+          "images": [],
+          "__typename": "Facility"
+        },
+        {
+          "id": "AAEGCQ8LE",
+          "code": "103248",
+          "createdAt": null,
+          "currentVersion": null,
+          "siteId": "D29295DDB",
+          "facets": "{\"contact-name\":\"Test Contact\",\"facility-gia\":\"10000\",\"build-date\":\"2019-09-26T14:24:00.851Z\",\"occupancy-normal\":\"1200\",\"facility-type\":\"Assembly and recreation building\",\"postcode\":\"CF63 2AW\",\"location\":{\"lon\":\"-71.34\",\"lat\":\"-45.7\"}}",
+          "notes": "{\"contact-email\":\"Test Contact Email\",\"facility-overview\":\"Test Overview\",\"address\":\"Test Address\",\"contact-job-title\":\"Test Contact Job Title\",\"contact-organization\":\"Test Contact Organization\",\"facility-use\":\"Test Use\",\"contact-telephone\":\"Test Contact Telephone\",\"contact-mobile\":\"Test Contact Mobile\"}",
+          "name": "Catalyst facility",
+          "rag": "A",
+          "images": [],
+          "tenantId": "672FB50-BE2B-405D-9526-CB81427B7B7E",
+          "__typename": "Facility"
+        },
+        {
+          "id": "AAEGCQ8LF",
+          "code": "103249",
+          "createdAt": null,
+          "currentVersion": null,
+          "siteId": "D29295DDB",
+          "facets": "{\"contact-name\":\"Test Contact\",\"facility-gia\":\"10000\",\"build-date\":\"2019-09-26T14:24:00.851Z\",\"occupancy-normal\":\"1200\",\"facility-type\":\"Assembly and recreation building\",\"postcode\":\"CF63 2AW\",\"location\":{\"lon\":\"-71.34\",\"lat\":\"-45.7\"}}",
+          "notes": "{\"contact-email\":\"Test Contact Email\",\"facility-overview\":\"Test Overview\",\"address\":\"Test Address\",\"contact-job-title\":\"Test Contact Job Title\",\"contact-organization\":\"Test Contact Organization\",\"facility-use\":\"Test Use\",\"contact-telephone\":\"Test Contact Telephone\",\"contact-mobile\":\"Test Contact Mobile\"}",
+          "name": "Arts centre",
+          "rag": "A",
+          "images": [],
+          "tenantId": "672FB50-BE2B-405D-9526-CB81427B7B7E",
+          "__typename": "Facility"
+        }
+      ],
+      "nextToken": null,
+      "__typename": "ModelFacilityConnection"
+    },
+    "listFloors": {
+      "items": [
+        {
+          "id": "8PJWCY2Qk",
+          "createdAt": "2019-05-16T16:30:53.771Z",
+          "currentVersion": "v0006",
+          "name": "First Floor Edited",
+          "status": "NOT_STARTED",
+          "facilityId": "AAEGCQ8LD",
+          "notes": "{}",
+          "__typename": "Floor"
+        },
+        {
+          "id": "kfiYMZr93",
+          "createdAt": "2019-05-16T15:48:04.967Z",
+          "currentVersion": "v0003",
+          "name": "Second Floor",
+          "status": "IN_PROGRESS",
+          "facilityId": "AAEGCQ8LD",
+          "notes": "{}",
+          "__typename": "Floor"
+        },
+        {
+          "id": "xOEfd2J4C",
+          "createdAt": "2019-05-16T15:48:20.145Z",
+          "currentVersion": "v0001",
+          "name": "Third Floor",
+          "status": "NOT_STARTED",
+          "facilityId": "AAEGCQ8LD",
+          "notes": "{}",
+          "__typename": "Floor"
+        }
+      ],
+      "nextToken": null,
+      "__typename": "ModelFloorConnection"
+    },
+    "listSpaces": {
+      "items": [
+        {
+          "id": "hOOu7WUsF",
+          "createdAt": "2019-05-16T16:37:21.548Z",
+          "createdBy": "modular-web-application-js-datacollection-module",
+          "currentVersion": "v0003",
+          "facilityId": "AAEGCQ8LD",
+          "floorId": "8PJWCY2Qk",
+          "name": "Space 1",
+          "localName": "Local Space 3",
+          "department": null,
+          "type": "Cupboard",
+          "status": "NOT_STARTED",
+          "notes": "{}",
+          "__typename": "Space"
+        },
+        {
+          "id": "S8Bjzwe_8",
+          "createdAt": "2019-05-16T16:34:57.105Z",
+          "createdBy": "modular-web-application-js-datacollection-module",
+          "currentVersion": "v0001",
+          "facilityId": "AAEGCQ8LD",
+          "floorId": "kfiYMZr93",
+          "name": "Space 2",
+          "localName": null,
+          "department": null,
+          "type": "Board Room",
+          "status": "NOT_STARTED",
+          "notes": "{}",
+          "__typename": "Space"
+        }
+      ],
+      "nextToken": null,
+      "__typename": "ModelSpaceConnection"
+    },
+    "listFormResponses": {
+      "items": [],
+      "nextToken": null,
+      "__typename": "ModelFormResponseConnection"
+    },
+    "listAssets": {
+      "items": [
+        {
+          "createdAt": "2019-05-24T12:08:42.871Z",
+          "createdBy": "modular-web-application-js-datacollection-module",
+          "facets": "{\"Condition\":\"B\",\"Quantity\":\"1\",\"Install Date\":\"2019-08-05T07:36:50.899Z\",\"barcode\":\"adult\",\"Manufacturer\":\"SE\",\"description\":\"Extending this logic, those cheetahs are nothing more than eagles;\"}",
+          "facilityId": "AAEGCQ8LD",
+          "floorId": "8PJWCY2Qk",
+          "spaceId": "hOOu7WUsF",
+          "id": "IQX1wmDA-",
+          "images": [],
+          "notes": "{}",
+          "assetType": {
+            "description": "Door - Manual Shutter Type (Horizontal Moving)",
+            "legacyId": "10725",
+            "tree": [
+              "Door - Manual Shutter Type (Horizontal Moving)",
+              "Auto/Manual Doors",
+              "Access Control"
+            ],
+            "virtual": false
+          },
+          "__typename": "Asset"
+        },
+        {
+          "createdAt": "2019-05-24T12:30:44.984Z",
+          "createdBy": "modular-web-application-js-datacollection-module",
+          "facets": "{\"Condition\":\"A\",\"Quantity\":\"2\",\"Install Date\":\"2019-08-05T07:36:50.899Z\"}",
+          "facilityId": "AAEGCQ8LD",
+          "floorId": "kfiYMZr93",
+          "id": "RpTHTN--O",
+          "images": [],
+          "notes": "{}",
+          "assetType": {
+            "description": "Chilled Beams",
+            "legacyId": "103224",
+            "tree": ["Chilled Beams", "Air Conditioning & Cooling", "Air conditioning"],
+            "virtual": true
+          }
+        }
+      ],
+      "nextToken": null,
+      "__typename": "ModelAssetConnection"
+    }
+  },
+  "mandatoryTypes": [10725, 10727, 10729],
+  "hierarchy": [
+    {
+      "type": "Access Control",
+      "legacyId": 10724,
+      "children": [
+        {
+          "children": [
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Barcode",
+                  "key": "barcode",
+                  "order": "4",
+                  "validation": { "mandatory": true },
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "AutoBox",
+                  "label": "Manufacturer",
+                  "key": "manufacturer",
+                  "order": "5",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "MultiLineTextBox",
+                  "label": "Description",
+                  "key": "description",
+                  "order": "6",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Amplifier",
+              "legacyId": 10723,
+              "virtual": false
+            }
+          ],
+          "type": "Amplifier"
+        },
+        {
+          "children": [
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Barcode",
+                  "key": "barcode",
+                  "order": "4",
+                  "validation": { "mandatory": true },
+                  "group": "Others",
+                  "element": "facets"
+                },
+                {
+                  "type": "AutoBox",
+                  "label": "Manufacturer",
+                  "key": "manufacturer",
+                  "order": "5",
+                  "group": "Others",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "MultiLineTextBox",
+                  "label": "Description",
+                  "key": "description",
+                  "order": "6",
+                  "group": "Others",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Door - Manual Shutter Type (Horizontal Moving)",
+              "legacyId": 10725,
+              "virtual": false
+            },
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Barcode",
+                  "key": "barcode",
+                  "order": "4",
+                  "validation": { "mandatory": true },
+                  "group": "Others",
+                  "element": "facets"
+                },
+                {
+                  "type": "AutoBox",
+                  "label": "Manufacturer",
+                  "key": "manufacturer",
+                  "order": "5",
+                  "group": "Others",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "MultiLineTextBox",
+                  "label": "Description",
+                  "key": "description",
+                  "order": "6",
+                  "group": "Others",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Door - Power Operated - Rapid Roll Type",
+              "legacyId": 10727,
+              "virtual": false
+            },
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "validation": { "mandatory": true },
+                  "element": "facets"
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Barcode",
+                  "key": "barcode",
+                  "order": "4",
+                  "validation": { "mandatory": true },
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "AutoBox",
+                  "label": "Manufacturer",
+                  "key": "manufacturer",
+                  "order": "5",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "MultiLineTextBox",
+                  "label": "Description",
+                  "key": "description",
+                  "order": "6",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Door - Power Operated - Revolving",
+              "legacyId": 10729,
+              "virtual": false
+            }
+          ],
+          "type": "Auto/Manual Doors"
+        },
+        {
+          "children": [
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Barcode",
+                  "key": "barcode",
+                  "order": "4",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "AutoBox",
+                  "label": "Manufacturer",
+                  "key": "manufacturer",
+                  "order": "5",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "MultiLineTextBox",
+                  "label": "Description",
+                  "key": "description",
+                  "order": "6",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Powered Gates",
+              "legacyId": 10324,
+              "virtual": false
+            },
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Barcode",
+                  "key": "barcode",
+                  "order": "4",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "AutoBox",
+                  "label": "Manufacturer",
+                  "key": "manufacturer",
+                  "order": "5",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "MultiLineTextBox",
+                  "label": "Description",
+                  "key": "description",
+                  "order": "6",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Traffic Barriers (inc vehicle blockers)",
+              "legacyId": 106624,
+              "virtual": false
+            },
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Barcode",
+                  "key": "barcode",
+                  "order": "4",
+                  "validation": { "mandatory": true },
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "AutoBox",
+                  "label": "Manufacturer",
+                  "key": "manufacturer",
+                  "order": "5",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "MultiLineTextBox",
+                  "label": "Description",
+                  "key": "description",
+                  "order": "6",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Traffic Control Systems (Traffic Lights etc)",
+              "legacyId": 107241,
+              "virtual": false
+            }
+          ],
+          "type": "Vehicular Control"
+        }
+      ]
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Chilled Beams",
+              "legacyId": 103224,
+              "virtual": false
+            },
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Deaerator",
+              "legacyId": 120724,
+              "virtual": false
+            },
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets",
+                  "validation": { "mandatory": true }
+                }
+              ],
+              "type": "Downflow Unit (Chilled Water)",
+              "legacyId": 10524,
+              "virtual": false
+            }
+          ],
+          "type": "Air Conditioning & Cooling",
+          "legacyId": 1023724
+        }
+      ],
+      "legacyId": 1072444,
+      "type": "Air conditioning"
+    }
+  ],
+  "virtualHierarchy": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets"
+                }
+              ],
+              "type": "Chilled Beams",
+              "legacyId": 23432423,
+              "virtual": false
+            },
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets"
+                }
+              ],
+              "type": "Deaerator",
+              "legacyId": 2343423,
+              "virtual": false
+            },
+            {
+              "facets": [
+                {
+                  "type": "ComboBox",
+                  "label": "Condition",
+                  "key": "condition",
+                  "options": [
+                    { "code": "A", "description": "A", "legacyId": 1 },
+                    { "code": "B", "description": "B", "legacyId": 2 },
+                    { "code": "C", "description": "C", "legacyId": 3 },
+                    { "code": "CX", "description": "CX", "legacyId": 4 },
+                    { "code": "D", "description": "D", "legacyId": 5 },
+                    { "code": "DX", "description": "DX", "legacyId": 6 }
+                  ],
+                  "order": "1",
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "TextBox",
+                  "label": "Quantity",
+                  "key": "quantity",
+                  "order": "2",
+                  "group": "Description",
+                  "element": "facets"
+                },
+                {
+                  "type": "ComboBoxYear",
+                  "label": "Install Date",
+                  "key": "install-date",
+                  "order": "3",
+                  "group": "Description",
+                  "element": "facets"
+                }
+              ],
+              "type": "Downflow Unit (Chilled Water)",
+              "virtual": false
+            }
+          ],
+          "type": "Air Conditioning & Cooling",
+          "legacyId": 123432423
+        }
+      ],
+      "type": "Air conditioning",
+      "legacyId": 234324234
+    }
+  ],
+  "subtypes": [
+    {
+      "subtype": "Boiler flue-gas",
+      "key": "subtype1"
+    }
+  ]
+}

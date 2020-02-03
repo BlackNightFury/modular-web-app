@@ -1,0 +1,39 @@
+// Import mixins
+@import '@/assets/styles/mixins.scss';
+
+.ant-drawer {
+  z-index: 9999;
+  &.form-drawer-container {
+    .ant-drawer-content-wrapper {
+      box-shadow: none;
+      pointer-events: none;
+
+      .ant-drawer-content {
+        background: transparent;
+        transition: none;
+
+        .ant-drawer-body {
+          padding: 0;
+          height: 100%;
+        }
+
+        .form-drawer-content {
+          height: 100%;
+          background-image: linear-gradient(to bottom right, #f3f6f7, #fff, #fff, #fff);
+          box-shadow: -10px 10px 35px -5px rgba(0, 0, 0, 0.15);
+          transition: transform 0.3s cubic-bezier(0.9, 0, 0.3, 0.7);
+          pointer-events: all;
+          overflow: auto;
+
+          .form-drawer-content-body {
+            padding: 20px;
+          }
+        }
+
+        .form-drawer-grid-container {
+          height: 100%;
+        }
+      }
+    }
+  }
+}

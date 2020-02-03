@@ -1,0 +1,213 @@
+@import '@/assets/styles/mixins.scss';
+
+.menu {
+  border-right: 1px solid $gray-border;
+  box-sizing: content-box;
+  height: 100%;
+
+  @at-root {
+    @media (min-width: 1435px) {
+      :global(.settings__fixedWidth) .menu {
+        border-left: 1px solid $gray-border;
+      }
+    }
+  }
+
+  :global(.ant-layout-sider-children) {
+    position: fixed;
+    height: 100%;
+    width: 25%;
+    transition: width 0.1s;
+    background: $sky-grey;
+
+    @media (max-width: $xl-max-width) {
+      width: 29.167%;
+    }
+
+    @media (max-width: $md-max-width) {
+      width: 50%;
+    }
+
+    @media (max-width: $sm-max-width) {
+      width: 100%;
+    }
+  }
+
+  &:global(.ant-layout-sider-collapsed) {
+    :global(.ant-layout-sider-children),
+    :global(.ant-layout-sider-trigger) {
+      width: 8.33333333% !important;
+      @media (min-width: $xxl-min-width) {
+        width: 5% !important;
+      }
+    }
+  }
+
+  :global(.ant-menu-inline-collapsed-tooltip) .icon {
+    display: none;
+  }
+
+  :global(.ant-layout-sider-zero-width-trigger) {
+    top: 10px !important;
+  }
+
+  :global(.ant-menu-item),
+  :global(.ant-menu-submenu-title) {
+    transition: padding 0s !important;
+  }
+}
+
+.scrollbarDesktop {
+  height: 100vh !important;
+}
+
+.scrollbarMobile {
+  height: calc(100vh - 97px) !important;
+}
+
+.light {
+  background: $white;
+
+  :global(.ant-layout-sider-trigger) {
+    width: 25% !important;
+    color: inherit;
+    background: $gray-border;
+  }
+
+  :global(.ant-menu-item) > :global(a) {
+    color: $text;
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  :global(.drawer-content) {
+    background: $white !important;
+  }
+}
+
+:global(.ant-menu-inline-collapsed-tooltip) [class*='style__icon'] {
+  display: none;
+}
+
+:global(.ant-menu-inline-collapsed-tooltip) [class*='icon__'] {
+  display: none;
+}
+
+.customer {
+  height: 100% !important;
+  box-shadow: 4px 0 rgba(171, 186, 199, 0.25);
+}
+
+.menuContainer {
+  height: 100%;
+  border-right: 1px solid $battleship-grey;
+
+  .header {
+    background: rgba(171, 186, 199, 0.7);
+    padding: 27px 20px;
+    height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $battleship-grey;
+
+    img {
+      height: 50px;
+    }
+
+    .iconContainer {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      background: $sky-grey;
+      border: 1px solid $battleship-grey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .collapseIcon {
+        color: $battleship-grey;
+        font-size: $font-size-xl;
+      }
+    }
+
+    &.collapsed {
+      justify-content: center;
+
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .content {
+    :global(.ant-collapse) {
+      border: none;
+    }
+
+    :global(.ant-collapse .ant-collapse-item .ant-collapse-header .ant-collapse-arrow) {
+      left: unset;
+      color: $slate-grey;
+      font-size: $font-size-lg;
+      right: 8px;
+    }
+
+    :global(.ant-collapse-header) {
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    :global(.ant-collapse-content) {
+      background: transparent;
+      border: none;
+    }
+
+    :global(.ant-collapse-content > .ant-collapse-content-box) {
+      padding: 0 16px 0 20px;
+    }
+
+    :global(.ant-collapse-item) {
+      border-bottom: 1px solid rgba(171, 186, 199, 0.5);
+    }
+  }
+
+  :global(.ant-input) {
+    border: 1px solid $battleship-grey;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    height: 30px;
+  }
+
+  :global(.ant-input-search .ant-input-search-icon) {
+    color: $slate-grey;
+    opacity: 0.5;
+  }
+
+  .iconOnlyItemContainer {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(171, 186, 199, 0.5);
+
+    .itemIconContainer {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      :global(.anticon) {
+        color: $battleship-grey;
+        font-size: $font-size-xxl;
+      }
+    }
+  }
+}
+
+.hiddenChevron :global(.ant-collapse-arrow) {
+  display: none !important;
+}

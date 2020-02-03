@@ -1,0 +1,97 @@
+@import '@/assets/styles/mixins.scss';
+
+.itemContainer {
+  margin-left: 20px;
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(171, 186, 199, 0.25);
+  }
+  &:last-child {
+    margin-bottom: 10px;
+  }
+
+  .headerContainer {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+:global(.ant-collapse-header),
+.itemContainer {
+  .main {
+    display: flex;
+    align-items: center;
+    color: $slate-grey;
+    font-size: $font-size-lg;
+  }
+
+  .info {
+    color: $battleship-grey;
+    margin-right: 10px;
+  }
+}
+
+.itemIconContainer {
+  width: 30px;
+  height: 40px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  :global(.anticon) {
+    color: $battleship-grey;
+    font-size: $font-size-xxl;
+  }
+}
+
+.smallIconContainer {
+  width: 26px;
+  height: 26px;
+  padding: 1px;
+
+  :global(.anticon) {
+    font-size: $font-size-md;
+    width: 14px;
+  }
+}
+
+.smallIconAfterText {
+  margin-left: 5px;
+  font-size: 13px;
+  line-height: 26px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.detailContainer {
+  padding-left: 40px;
+  padding-bottom: 10px;
+}
+
+.battleshipGrey {
+  color: $battleship-grey;
+}
+
+.slateGrey {
+  color: $slate-grey;
+}
+
+.darkGrey {
+  color: $dark-grey;
+}
+
+.additionalButton {
+  margin: 10px 0 0 0;
+  border: solid 1px $battleship-grey;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  height: 30px;
+  font-size: $font-size-sm;
+  color: $slate-grey;
+}

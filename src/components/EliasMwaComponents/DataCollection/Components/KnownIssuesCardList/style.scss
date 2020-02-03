@@ -1,0 +1,89 @@
+@import '@/assets/styles/mixins.scss';
+@import '@/assets/styles/style.scss';
+
+.descriptionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  height: 100%;
+}
+
+.highlightedBackground {
+  background: $alternating-sage;
+}
+
+.vImageContainer {
+  width: 100%;
+  color: $dark-grey;
+  font-family: $font-family;
+  span {
+    display: block;
+  }
+  .qtyIncreaserContainer span {
+    display: inline;
+  }
+}
+
+.cardDetails {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  color: $dark-grey;
+  font-family: $font-family;
+}
+
+.vCardInfoContainer {
+  flex-wrap: wrap;
+  flex: 1;
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+.vActionButtons {
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+:global(.ant-tooltip-placement-topLeft) {
+  padding-top: 6px;
+  padding-bottom: 2px;
+
+  :global(.ant-tooltip-inner) {
+    background-color: $highlight-blue;
+    color: $slate-grey;
+    border: solid 1px $slate-grey;
+    z-index: 2;
+  }
+
+  :global(.ant-tooltip-arrow) {
+    border-top-color: transparent !important;
+    z-index: 1;
+  }
+
+  :global(.ant-tooltip-arrow:before),
+  :global(.ant-tooltip-arrow:after) {
+    content: '';
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+  }
+
+  :global(.ant-tooltip-arrow:before) {
+    border-top: 5px solid $slate-grey;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+  }
+
+  :global(.ant-tooltip-arrow:after) {
+    border-top: 5px solid $highlight-blue;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+    margin-top: -2px;
+    z-index: 1;
+  }
+}

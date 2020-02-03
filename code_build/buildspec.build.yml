@@ -1,0 +1,52 @@
+version: 0.2
+
+env:
+  variables:
+    CYPRESS_NODES: 1
+    USE_PARALLEL: false
+    NODE_OPTIONS: --max_old_space_size=4096
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+    #   nodejs: 10
+    commands:
+      - git log -1 --pretty=format:'%an'
+      - git log
+      - npm install folder-hash
+      #verify-environment relies on node_modules being cached:
+      - scripts/verify-environment.js dev
+      - sudo apt-get update -y
+      - sudo apt-get install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 unzip -y
+      - npm run install-all
+      - npm run output-versions
+
+      - npm install pm2 wait-on -g
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws sts get-caller-identity
+      - $(aws ecr get-login --no-include-email --region eu-west-2)
+      - docker ps
+
+  build:
+    commands:
+      - npm run test
+      - npm run test:integration
+      
+  post_build:
+    commands:
+      - npm run start:codebuild
+      - ./scripts/cypress_parallel.sh
+      - ./scripts/persist-environment.js dev
+      - pm2 stop 0
+      - docker ps
+
+cache:
+  paths:
+    - ./node_modules/**/*
+    - ./infrastructure/serverless/node_modules/**/*
+    - ./infrastructure/acceptance_tests/node_modules/**/*
+    - ./infrastructure/db-migrations/node_modules/**/*
+    - ./cypress/node_modules/**/*
+    - /usr/local/lib/node_modules

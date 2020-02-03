@@ -1,0 +1,45 @@
+@import '@/assets/styles/Antd/import/form.scss';
+
+.error {
+  color: #fb434a;
+}
+
+.formTitle {
+  color: #51574f;
+  font-size: 14px;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+
+.photoContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  width: 60px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.divDummy {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.btnDummy {
+  position: absolute;
+  right: 0;
+}
+
+.imageNoteDiv {
+  margin-bottom: 10px;
+}
+
+.buttonGroup {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  display: flex;
+}

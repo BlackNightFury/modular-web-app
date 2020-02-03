@@ -1,0 +1,55 @@
+@import '@/assets/styles/mixins.scss';
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.groupContainer {
+  border: 1px solid $sky-grey;
+  font-size: $font-size-sm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  position: relative;
+  &:hover {
+    border: solid #29a9ff 1px;
+  }
+  :global(.ant-select-selection) {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.openFilter {
+  width: calc(100% - 200px);
+  @media only screen and (max-width: $xs-max-width) {
+    width: 100%;
+  }
+  .filterIconContainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    right: 0;
+  }
+}
+
+.filterIconContainer {
+  width: 32px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.filterIcon {
+  color: $slate-grey;
+}

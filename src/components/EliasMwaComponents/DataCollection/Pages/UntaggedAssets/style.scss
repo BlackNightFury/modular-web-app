@@ -1,0 +1,81 @@
+@import '../CommonPage/style.scss';
+
+.assetsConainer {
+  display: flex;
+  flex-direction: column;
+  margin: -16px;
+}
+
+:global(.card-body) {
+  .optionRow {
+    padding: 0;
+    padding-top: 0;
+  }
+}
+
+.sortContainer {
+  margin-bottom: 20px;
+}
+
+.CTAHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.filterWrapper {
+  margin-bottom: rem(10);
+}
+
+.switch {
+  height: 24px;
+  width: 48px;
+  margin-right: 15px;
+  background: rgb(198, 208, 217);
+}
+
+.switch::after {
+  width: 20px;
+  height: 20px;
+}
+
+.switchContainer {
+  position: relative;
+}
+
+.btnCTA {
+  display: flex;
+  align-items: center;
+  float: right;
+}
+
+.btnAdd {
+  background: rgb(234, 76, 86);
+  color: white;
+  font-size: 16px;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 6px;
+}
+
+.btnAdd:hover {
+  background: white;
+  color: rgb(234, 76, 86);
+  border-color: rgb(234, 76, 86);
+}
+
+.locationStyle {
+  max-width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  @media only screen and (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.firstColumn {
+  @media only screen and (max-width: 1200px) {
+    width: 100%;
+  }
+}

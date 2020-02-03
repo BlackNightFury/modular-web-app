@@ -1,0 +1,15 @@
+@import '@/assets/styles/mixins.scss';
+
+.reportActionContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  button {
+    height: 30px;
+
+    &.downloadReport {
+      margin-left: 10px;
+    }
+  }
+}

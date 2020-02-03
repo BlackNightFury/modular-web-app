@@ -1,0 +1,47 @@
+@import '@/assets/styles/mixins.scss';
+@import '../Common/style.scss';
+
+.container {
+  border-bottom: 1px solid rgba(171, 186, 199, 0.25);
+}
+
+.searchContainer {
+  margin: 10px 10px 0 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.searchableTree :global(.ant-select-selection) {
+  background: rgba(255, 255, 255, 0.5);
+  border: solid 1px $battleship-grey;
+}
+
+.buttonGroup {
+  display: flex;
+  margin-left: 5px;
+}
+
+.goBtn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.5);
+  border: solid 1px $battleship-grey;
+}
+
+.secondaryButton {
+  padding-left: 5px;
+  padding-right: 5px;
+  background: rgba(171, 186, 199, 0.5) !important;
+  border: solid 1px $battleship-grey !important;
+  &:global(.ant-dropdown-trigger) {
+    padding: 10px 5px;
+  }
+}
+
+.selectContainer {
+  width: 100%;
+}
+
+.assetLink {
+  margin-left: 20px;
+}

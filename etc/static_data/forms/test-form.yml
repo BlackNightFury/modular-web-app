@@ -1,0 +1,50 @@
+allowRoute: true
+header: Test Form
+fieldsets:
+  - name: Group_1
+    questions:
+      - description: This is the test question 1
+        fieldName: question_field_1
+        type: CheckBox
+        visible: true
+        defaultValue: checked
+      - description: This is the test question 2
+        fieldName: question_field_2
+        type: TextBox
+        defaultValue: string
+        required: true
+        visible: true
+      - fieldName: hidden_field_1
+        type: TextBox
+        visible: false
+        defaultValue: hidden_value
+      - description: This is the test question 4
+        fieldName: question_field_4
+        type: TextBox
+        defaultValue: string
+        required: true
+        visible: true
+      - description: This is the test question 5
+        fieldName: question_field_5
+        type: TextBox
+        defaultValue: string
+        required: true
+        visible: true
+      - description: This is the test question 6
+        fieldName: question_field_6
+        type: TextBox
+        defaultValue: string
+        required: true
+        visible: true
+      - description: This is the test question 7
+        fieldName: question_field_7
+        type: TextBox
+        defaultValue: string
+        required: true
+        visible: true
+  - name: Group_2
+    questions:
+      - description: This is the test question 3
+        fieldName: question_field_3
+        type: CheckBox
+        visible: true

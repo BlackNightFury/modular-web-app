@@ -1,0 +1,66 @@
+@import '@/assets/styles/mixins.scss';
+@import '@/assets/styles/style.scss';
+@import '../ActionCard/style.scss';
+
+.facilityName {
+  color: $slate-grey;
+}
+.postcode {
+  color: $dark-grey;
+}
+.projectName {
+  color: $battleship-grey;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  color: $slate-grey;
+  height: 100%;
+}
+
+.highlightedBackground {
+  background: $alternating-sage;
+}
+
+.visualStatusIndicator {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+  i {
+    font-size: $font-size-sm;
+    width: 12px;
+    border-radius: 50%;
+  }
+}
+
+.statusText {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cardDetails {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  color: $slate-grey;
+  font-family: $font-family;
+}
+
+.vCardInfoContainer {
+  flex-wrap: wrap;
+  flex: 1;
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+.vActionButtons {
+  flex-direction: column-reverse;
+  display: flex;
+}
+
+.paragraph {
+  width: 100%;
+  margin-bottom: 1rem;
+}

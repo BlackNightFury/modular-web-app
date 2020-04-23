@@ -37,7 +37,7 @@ If you want to run it in your environment, then set up your environment and run 
 
 # Infrastructure / configuration
 
-The account arrangement is described in the "Multi environment" section of the [Product & dev process document](https://docs.google.com/document/d/12oE-9BUrhLl9UJhmKUvQCwVQUKRmFB0EnWUEDM1EJ9s/edit).
+The account arrangement is described in the "Multi environment" section of the [Product & dev process document]
 
 The application is deployed into prod 3051-5626-1037, test 5755-3685-3050 & dev 1361-6505-2809 accounts, along with a temporary sandpit 7252-0325-2708 account.
 
@@ -47,7 +47,7 @@ The dev & sandpit accounts have multiple environments within them (for each deve
 
 ## Signing into our AWS infrastructure
 
-This is described more fully in the [Product & dev process document](https://docs.google.com/document/d/12oE-9BUrhLl9UJhmKUvQCwVQUKRmFB0EnWUEDM1EJ9s/edit).
+This is described more fully in the [Product & dev process document]
 
 In order to login to an account to execute the terraform or serverless code, it is assumed you have a AWS config file (~/.aws/config) setup as per the example in the doc and we can then use aws-azure-login to login to the "shared / iam" account :
 
@@ -110,7 +110,7 @@ npm run serverless-s3sync -- --stage $ENVIRONMENT --account $ACCOUNT
 npm run serverless-s3sync -- --stage craig --account dev
 
 ### Adding a new environment
-As described in  the [Product & dev process document](https://docs.google.com/document/d/12oE-9BUrhLl9UJhmKUvQCwVQUKRmFB0EnWUEDM1EJ9s/edit) we have multiple
+As described in  the [Product & dev process document] we have multiple
 environments in each AWS account. This allows each developer to have their a sandboxed dev environment and also when needed, an environment a specific task
 that's taking an extended period of time, or other purpose.
 

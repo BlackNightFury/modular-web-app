@@ -100,7 +100,7 @@
     "random-words": "^1.1.0",
     "rc-drawer": "^1.7.6",
     "react": "^16.6.3",
-    "react-adal": "^0.4.22",
+    "react-adal": "^0.5.1",
     "react-apollo": "^2.5.6",
     "react-c3js": "^0.1.20",
     "react-chartist": "^0.13.1",

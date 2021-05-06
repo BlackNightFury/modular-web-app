@@ -107,7 +107,7 @@
     "react-chartjs-2": "^2.7.4",
     "react-custom-scrollbars": "^4.2.1",
     "react-device-detect": "^1.6.2",
-    "react-draft-wysiwyg": "^1.12.13",
+    "react-draft-wysiwyg": "^1.14.6",
     "react-ga": "^2.6.0",
     "react-helmet": "^5.2.0",
     "react-highcharts": "^16.0.2",

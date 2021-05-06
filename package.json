@@ -83,7 +83,7 @@
     "fuzzysort": "^1.1.4",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
-    "highcharts": "^7.2.0",
+    "highcharts": "^9.0.0",
     "http-aws-es": "^6.0.0",
     "js-yaml": "^3.13.1",
     "jwt-decode": "^2.2.0",

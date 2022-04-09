@@ -89,7 +89,7 @@
     "jwt-decode": "^2.2.0",
     "localforage": "^1.7.3",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "new-relic-agent-react": "^2.0.1",
     "node-fetch": "^2.6.0",
     "nprogress": "^0.2.0",

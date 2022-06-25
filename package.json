@@ -91,7 +91,7 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "new-relic-agent-react": "^2.0.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "nprogress": "^0.2.0",
     "peity-react": "^0.0.7",
     "prop-types": "^15.6.2",

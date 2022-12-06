@@ -95,7 +95,7 @@
     "nprogress": "^0.2.0",
     "peity-react": "^0.0.7",
     "prop-types": "^15.6.2",
-    "qs": "^6.7.0",
+    "qs": "^6.9.7",
     "randexp": "^0.5.3",
     "random-words": "^1.1.0",
     "rc-drawer": "^1.7.6",
